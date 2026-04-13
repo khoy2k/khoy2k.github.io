@@ -132,3 +132,366 @@
             padding: 0.75rem 1.5rem;
             font-weight: 600;
             border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #1E40AF;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Skills/Arsenal Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 2.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .project-date {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-summary {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-details h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Leadership Section */
+        .leadership-item {
+            margin-bottom: 2rem;
+        }
+        
+        .leadership-item h3 {
+            margin-bottom: 0.2rem;
+        }
+
+        .leadership-role {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; /* Simple mobile hide for now */ }
+            .project-card { padding: 1.5rem; }
+            .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; width: fit-content; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="nav-logo">Who Kang.</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="Who_Kang_UW_Resume.pdf" target="_blank" class="btn btn-primary" style="color: white; margin-left: 2rem;">Resume PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <section id="hero">
+            <h1>Engineering hardware that flies, functions, and scales.</h1>
+            <div class="subheadline">Who Kang | Aerospace Engineering, UW '27</div>
+            <p class="hero-intro">
+                Specializing in UAV control systems, mechanical design, and rapid prototyping. Combining rigorous systems analysis at the University of Washington with foundational FAA A&P fabrication experience to solve complex aerospace challenges.
+            </p>
+            <div>
+                <a href="#projects" class="btn btn-primary">See My Work</a>
+                <a href="mailto:khoy2k04@gmail.com" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am an aerospace engineering student at the University of Washington pursuing a B.S. in Aeronautics & Astronautics with a minor in Informatics. My engineering philosophy is straightforward: the best designs come from a fundamental understanding of how systems are built, integrated, and maintained.</p>
+            <p>Before diving into advanced flight mechanics and systems engineering at UW, I completed a two-year Aviation Maintenance Technician program to earn my FAA Airframe & Powerplant (A&P) certification. While my focus is strictly on engineering design and research, this hands-on training profoundly shapes my approach. It ensures that the systems I design in SolidWorks or simulate in MATLAB are not just theoretically sound, but practically manufacturable, reliable, and logical to assemble.</p>
+            <p>Currently, I am focused on flight systems, UAV control interfaces, and robotics. Whether I am tuning a flight controller for a multimodal drone or structuring a trade study for autonomous patrol robots, I thrive at the intersection of mechanical hardware, software control, and systems-level thinking.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Software & Analysis</h3>
+                    <ul class="skill-list">
+                        <li>Python / C/C++</li>
+                        <li>MATLAB / Simulink</li>
+                        <li>Systems Engineering Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Design & Hardware</h3>
+                    <ul class="skill-list">
+                        <li>SolidWorks / Fusion 360 / Onshape</li>
+                        <li>Raspberry Pi / Arduino</li>
+                        <li>Betaflight Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Fabrication</h3>
+                    <ul class="skill-list">
+                        <li>FAA A&P Certified Mechanic</li>
+                        <li>Machine Shop (Lathe/Mill)</li>
+                        <li>Avionics Wiring</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience & Leadership</h2>
+            <br>
+            
+            <div class="leadership-item">
+                <h3>G3MS Lab, University of Washington</h3>
+                <div class="leadership-role">Undergraduate Research Assistant | March 2026 – Present</div>
+                <p>Conducting research under Prof. Avin Vijay focusing on automated fiber placement and additive manufacturing. Contributing to the development of a machine learning-based method to identify pre-cure automated fiber placement defects (overlaps, twisting, tow misalignment) and assisting in processing recycled polymer feedstocks into conductive filament for additive manufacturing workflows.</p>
+            </div>
+
+            <div class="leadership-item">
+                <h3>STEM Aircraft Design, Build, and Fly Team</h3>
+                <div class="leadership-role">Team Lead & Founder | Aug 2024 – May 2025</div>
+                <p>Managed the complete project lifecycle. Established design review cadences, enforced documentation standards, and managed the budget, materials procurement, and machine shop access.</p>
+            </div>
+
+            <div class="leadership-item">
+                <h3>KOJOBS (Korean Job Research)</h3>
+                <div class="leadership-role">Event Planning Team Officer</div>
+                <p>Structured workshop agendas, produced presentation decks, and organized session content to facilitate professional development events.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Engineering Projects</h2>
+            
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Multimodal EMG-Controlled FPV Drone</h3>
+                        <span class="project-date">Jan 2026 – Present</span>
+                    </div>
+                    <p class="project-summary">Developing a hands-free FPV drone testbed integrating electromyography (EMG) and voice inputs for reliable teleoperation.</p>
+                    
+                    <div class="project-details">
+                        <p><strong>Overview:</strong> Engineering a multimodal control system that maps physiological and auditory inputs to drone flight mechanics. I built the FPV drone testbed from scratch, handling the assembly, wiring, and avionics integration to interface with microcontrollers.</p>
+                        
+                        <h4>Problem & Approach</h4>
+                        <p>Traditional RC controllers require full manual engagement. I bridged the hardware/software gap by routing signals through a Raspberry Pi/Arduino setup into a Betaflight-configured flight controller. This included configuring receiver inputs, motor mapping, ESC protocols, and failsafe settings.</p>
+                        
+                        <h4>Outcome</h4>
+                        <p>Currently performing flight readiness checks, troubleshooting power integrity, and assessing Human-Machine Interface (HMI) efficiency during simulated flight tasks.</p>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Betaflight</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Autonomous Patrol Robot Systems Analysis</h3>
+                        <span class="project-date">Dec 2025 – Mar 2026</span>
+                    </div>
+                    <p class="project-summary">Conducted a comprehensive systems engineering trade study for the deployment of autonomous security robots for the Consulate General of the Republic of Korea.</p>
+                    
+                    <div class="project-details">
+                        <p><strong>Overview:</strong> A consulting-style engineering project translating high-level stakeholder needs into strict operational requirements, evaluating the feasibility of deploying autonomous patrol robots.</p>
+                        
+                        <h4>Problem & Approach</h4>
+                        <p>The sponsor needed a rigorous, data-backed recommendation. I developed a quantitative index model using Need, Demand, Acceptance, and Concern to evaluate the robots, reviewing frameworks like UTAUT to support a multi-criteria evaluation model.</p>
+                        
+                        <h4>Outcome</h4>
+                        <p>Automated the preprocessing and weighted scoring for over 100 survey respondents using Python (Pandas) and MATLAB, delivering a structured evaluation of robot capabilities.</p>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tag">Python (Pandas)</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Systems Engineering</span>
+                        <span class="tag">Trade Studies</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">IREC Rocket Design & Fabrication</h3>
+                        <span class="project-date">May 2024 – June 2024</span>
+                    </div>
+                    <p class="project-summary">Analyzed flight stability and fabricated composite/polymer airframe components for a competitive sounding rocket.</p>
+                    
+                    <div class="project-details">
+                        <p><strong>Overview:</strong> A rapid-cycle project bridging aerospace fundamentals with raw manufacturing. Responsible for ensuring aerodynamic stability across payload, recovery, and motor configurations.</p>
+                        
+                        <h4>Problem & Approach</h4>
+                        <p>The vehicle required strict adherence to apogee targets and stability margins. I simulated apogee sensitivity to mass distribution changes using MATLAB and OpenRocket. I then calculated CP/CG relationships and transitioned to the shop floor to machine a Delrin nose cone and fabricate the PVC airframe.</p>
+                        
+                        <h4>Outcome</h4>
+                        <p>Successfully manufactured flight hardware that matched simulated stability criteria, contributing to the team's competition readiness.</p>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tag">OpenRocket</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Machining</span>
+                        <span class="tag">Airframe Fabrication</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">DBF Aircraft Design & Avionics Integration</h3>
+                        <span class="project-date">Aug 2024 – May 2025</span>
+                    </div>
+                    <p class="project-summary">Executed the aerodynamic design, structural build, and avionics integration for a mission-driven RC aircraft.</p>
+                    
+                    <div class="project-details">
+                        <p><strong>Overview:</strong> A comprehensive vehicle design cycle balancing lift, drag, and weight constraints to meet specific flight mission parameters for the Design, Build, Fly competition.</p>
+                        
+                        <h4>Problem & Approach</h4>
+                        <p>The team needed an optimized airfoil and airframe. I estimated aerodynamic parameters including lift and drag, and modeled components in SolidWorks. During assembly, I directly applied my A&P mechanic knowledge to integrate avionics and propulsion components, ensuring strict weight and balance requirements were met.</p>
+                        
+                        <h4>Outcome</h4>
+                        <p>Delivered a structurally sound, flight-ready airframe with fully integrated and tested avionics, supported by hands-on manufacturing processes.</p>
+                    </div>
+                    
+                    <div class="tech-tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">Aircraft Design</span>
+                        <span class="tag">Avionics</span>
+                        <span class="tag">Weight & Balance</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>Let's Build Something.</h2>
+            <p style="margin-bottom: 2rem;">I am actively seeking engineering internships for Summer 2026. If my background aligns with your team's needs, I'd love to connect.</p>
+            <a href="mailto:khoy2k04@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="https://www.linkedin.com/in/who-kang" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <br><br><br>
+            <p style="font-size: 0.85rem; font-family: 'Roboto Mono', monospace;">Designed and built by Who Kang. © 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
