@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Patrol Robot Systems Analysis | Who Kang</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+
+    <style>
+        /* CSS Variables - Dark UW Purple Theme */
+        :root {
+            --bg-color: #0F1115; 
+            --surface-color: #1A1D24; 
+            --text-primary: #F1F5F9; 
+            --text-secondary: #94A3B8; 
+            --accent-color: #A855F7; 
+            --border-color: #2D3748; 
+            --tag-bg: #4B2E83; 
+            --tag-text: #F3E8FF; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 4rem 2rem; 
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1.1; }
+        h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        ul { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        a { color: var(--accent-color); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: #D8B4FE; }
+
+        /* Specific styles for project images */
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .image-caption {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: -1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Tech Tags */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" style="font-weight: 600;">← Back to Home</a>
+        
+        <h1 style="margin-top: 2rem;">Autonomous Patrol Robot Systems Analysis</h1>
+        <p style="font-family: 'Roboto Mono', monospace; font-size: 0.9rem; margin-bottom: 1.5rem;">Dec 2025 – Mar 2026</p>
+
+        <div class="tech-tags">
+            <span class="tag">Systems Engineering</span>
+            <span class="tag">Python (Pandas)</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Trade Studies</span>
+        </div>
+
+        <p style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">A comprehensive systems engineering trade study evaluating the feasibility of deploying autonomous security robots, backed by a custom multi-criteria evaluation model.</p>
+
+        <h2>The Client & The Problem</h2>
+        <p>This consulting-style engineering project was developed during the K-Capstone Challenge, hosted by the Consulate General of the Republic of Korea in Seattle. Our team was assigned to work with our industry partner, <strong>DOGU</strong>, to solve a core operational challenge.</p>
+        <p>DOGU needed a rigorous, data-backed recommendation on whether their indoor/outdoor autonomous patrol robots were viable, safe, and acceptable for deployment in complex public facilities. The evaluation had to account for strict operational constraints, including public privacy concerns, navigation robustness, and the impact on human operational workload.</p>
+
+        <h2>Systems Engineering Framework</h2>
+        <p>To provide a structured recommendation, I looked beyond basic hardware specifications and built a quantitative index model based on four core pillars: <strong>Need, Demand, Acceptance, and Concern</strong>.</p>
+        <p>To ground this evaluation in established academic theory, I utilized the <strong>UTAUT</strong> (Unified Theory of Acceptance and Use of Technology) framework. This allowed us to translate highly subjective stakeholder feelings into objective engineering metrics that could be scored and plotted.</p>
+
+        <img src="placeholder-conops.jpg" alt="Concept of Operations Diagram" class="project-image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-align: center;">
+        <div class="image-caption">Fig 1: Systems Architecture and Concept of Operations (ConOps) mapping.</div>
+
+        <h2>Data Processing & Modeling</h2>
+        <p>We gathered qualitative survey data from over 100 respondents. To evaluate this data efficiently, I utilized <strong>Python (Pandas)</strong> to automate the preprocessing pipeline, clean the dataset, and apply our weighted scoring matrix.</p>
+
+        <div style="margin-top: 2rem; margin-bottom: 2rem;">
+            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'Roboto Mono', monospace;">Automated Scoring Logic (Python/Pandas):</h4>
+            <pre><code class="language-python">
+import pandas as pd
+import numpy as np
+
+def calculate_viability_score(df, weights):
+    """
+    Applies the UTAUT-based weighted matrix to survey respondent data.
+    Weights dictate the importance of Need, Demand, Acceptance, and Concern.
+    """
+    # Normalize survey responses (1-5 Likert scale to 0-1)
+    metrics = ['need_score', 'demand_score', 'acceptance_score', 'concern_score']
+    for metric in metrics:
+        df[f'{metric}_norm'] = (df[metric] - 1) / 4.0
+
+    # Invert the 'concern' score since high concern negatively impacts viability
+    df['concern_score_norm'] = 1.0 - df['concern_score_norm']
+
+    # Calculate final weighted index
+    df['final_viability_index'] = (
+        (df['need_score_norm'] * weights['need']) +
+        (df['demand_score_norm'] * weights['demand']) +
+        (df['acceptance_score_norm'] * weights['acceptance']) +
+        (df['concern_score_norm'] * weights['concern'])
+    )
+    
+    return df.sort_values(by='final_viability_index', ascending=False)
+            </code></pre>
+        </div>
+
+        <h2>Final Output & Trade Study Results</h2>
+        <p>The automated scoring model allowed us to generate a definitive decision matrix using MATLAB. By cross-referencing the viability index against specific facility constraints, we delivered a comprehensive feasibility report to DOGU.</p>
+        <p>The project successfully demonstrated how to bridge the gap between human stakeholder requirements and technical hardware deployment, resulting in a data-backed Concept of Operations strategy for autonomous patrol robots.</p>
+
+        <img src="placeholder-matrix.jpg" alt="Weighted Decision Matrix Output" class="project-image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-align: center;">
+        <div class="image-caption">Fig 2: Final weighted decision matrix and viability distribution.</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
+
+</body>
+</html>
