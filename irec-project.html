@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IREC Rocket Design & Fabrication | Who Kang</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+
+    <style>
+        /* CSS Variables - Dark UW Purple Theme */
+        :root {
+            --bg-color: #0F1115; 
+            --surface-color: #1A1D24; 
+            --text-primary: #F1F5F9; 
+            --text-secondary: #94A3B8; 
+            --accent-color: #A855F7; 
+            --border-color: #2D3748; 
+            --tag-bg: #4B2E83; 
+            --tag-text: #F3E8FF; 
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 4rem 2rem; 
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; line-height: 1.1; }
+        h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        ul { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        a { color: var(--accent-color); text-decoration: none; transition: color 0.2s ease; }
+        a:hover { color: #D8B4FE; }
+
+        /* Specific styles for project images */
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .image-caption {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: -1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Tech Tags */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
+        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" style="font-weight: 600;">← Back to Home</a>
+        
+        <h1 style="margin-top: 2rem;">IREC Rocket Design & Fabrication</h1>
+        <p style="font-family: 'Roboto Mono', monospace; font-size: 0.9rem; margin-bottom: 1.5rem;">May 2024 – June 2024</p>
+
+        <div class="tech-tags">
+            <span class="tag">OpenRocket</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Machining</span>
+            <span class="tag">Airframe Fabrication</span>
+        </div>
+
+        <p style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">A rapid-cycle sounding rocket project bridging theoretical aerodynamic stability analysis with the physical fabrication of composite and polymer airframe components.</p>
+
+        <h2>The Engineering Challenge</h2>
+        <p>Designing a competition-ready launch vehicle requires strict adherence to target apogees and safety margins. The primary engineering challenge was simulating and predicting how slight changes in mass distribution across the payload, recovery, and motor configurations would impact the aerodynamic stability of the rocket at high velocities.</p>
+        <p>Furthermore, this project required translating digital aerodynamic simulations into physical hardware with strict tolerances, demanding a direct transition from computational models to hands-on machine shop fabrication.</p>
+
+        <h2>Aerodynamic Analysis & Simulation</h2>
+        <p>To ensure a stable flight profile and verify our target apogee, I ran iterative simulations using OpenRocket. I analyzed the relationship between the Center of Pressure (CP) and Center of Gravity (CG) across various motor delays and payload weights.</p>
+        <p>To validate the OpenRocket outputs, I utilized MATLAB to model the vehicle's static margin sensitivity based on varying airframe dimensions.</p>
+
+        <div style="margin-top: 2rem; margin-bottom: 2rem;">
+            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.5rem; font-family: 'Roboto Mono', monospace;">Static Stability Margin Calculation (MATLAB):</h4>
+            <pre><code class="language-matlab">
+% Calculate Static Margin for IREC Launch Vehicle
+% Ensure CG is ahead of CP by at least 1.5 to 2.0 calibers
+
+body_diameter = 4.0; % inches
+cg_location = 48.5; % inches from nose tip
+cp_location = 56.2; % inches from nose tip
+
+% Calculate stability caliber
+static_margin = (cp_location - cg_location) / body_diameter;
+
+fprintf('Calculated Static Margin: %.2f calibers\n', static_margin);
+
+if static_margin >= 1.5 && static_margin <= 2.5
+    disp('Status: STABLE. Vehicle is within safe flight parameters.');
+else
+    disp('Status: UNSTABLE. Adjust mass distribution or fin geometry.');
+end
+            </code></pre>
+        </div>
+
+        <img src="openrocket-graph.jpg" alt="OpenRocket Stability Graph" class="project-image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-align: center;">
+        <div class="image-caption">Fig 1: OpenRocket simulation detailing predicted apogee, thrust curve, and static stability margin.</div>
+
+        <h2>Fabrication & Hardware Integration</h2>
+        <p>With the aerodynamic profile verified, I transitioned to the shop floor to manufacture the flight hardware. Utilizing precision machining techniques, I turned a custom Delrin nose cone on the lathe to match the required ogive profile, minimizing aerodynamic drag.</p>
+        <p>I also led the fabrication and assembly of the PVC airframe, ensuring the motor mount and centering rings were structurally sound enough to withstand maximum dynamic pressure (Max-Q) and the shock of parachute deployment.</p>
+
+        <img src="nosecone-photo.jpg" alt="Machined Delrin Nose Cone" class="project-image" style="min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-align: center;">
+        <div class="image-caption">Fig 2: The final machined Delrin nose cone and assembled airframe section.</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
+
+</body>
+</html>
