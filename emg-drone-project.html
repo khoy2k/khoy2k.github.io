@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimodal EMG-Controlled FPV Drone | Who Kang</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0F1115;
+            --surface-color: #1A1D24;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --accent-color: #A855F7;
+            --border-color: #2D3748;
+            --tag-bg: #4B2E83;
+            --tag-text: #F3E8FF;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { color: #D8B4FE; }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .eyebrow {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            line-height: 1.1;
+            margin: 0 0 1rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            margin: 0 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .lead {
+            max-width: 760px;
+            color: var(--text-primary);
+            font-size: 1.22rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .meta-item {
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .meta-label {
+            display: block;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--text-secondary);
