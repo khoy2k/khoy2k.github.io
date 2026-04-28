@@ -35,5 +35,5 @@ https://khoy2k.github.io/
 
 ## Contact
 
-- LinkedIn: Add your LinkedIn URL here
-- Email: Add your professional email here
+- LinkedIn: www.linkedin.com/in/who-kang
+- Email: khoy2k04@gmail.com
