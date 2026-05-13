@@ -40,6 +40,16 @@
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
         .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .metric-card { background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; }
+        .metric-card strong { display: block; color: var(--text-primary); font-size: 1.35rem; margin-bottom: 0.25rem; }
+        .metric-card span { color: var(--text-secondary); font-size: 0.95rem; }
+        .project-figure { margin: 1.5rem 0 2rem; }
+        .project-figure img { width: 100%; display: block; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color); }
+        .project-figure figcaption { margin-top: 0.75rem; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; font-size: 0.85rem; line-height: 1.5; }
+        .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+        .poster-figure img { max-height: 760px; object-fit: contain; background: white; }
+        .data-link { display: inline-block; margin-top: 0.5rem; font-family: 'Roboto Mono', monospace; font-size: 0.9rem; }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -156,21 +166,95 @@
             <p>The following artifacts support this project:</p>
             <ul>
                 <li>Project code repository with software integration, command routing, and latency measurement scripts.</li>
-                    <p>
-                        
-                    </p>
                 <li>Latency measurement data comparing voice-only, SSVEP-only, and multimodal control modes.</li>
                 <li>Baseline RC flight demonstration video showing successful takeoff, hover, directional control, and landing using the integrated system.</li>
+                <li>Draft UW Undergraduate Symposium poster used here as a temporary project artifact.</li>
+            </ul>
+
+            <figure class="project-figure poster-figure">
+                <img src="images/multi-uav/poster-draft.png" alt="Draft symposium poster for the safer multimodal drone control system">
+                <figcaption>Draft symposium poster placeholder. This artifact is included to show the overall project framing and presentation direction, but it is still a work in progress.</figcaption>
+            </figure>
         </section>
 
         <section>
             <h2>Outcome</h2>
-            <p>The project has produced a working prototype path for validating embedded communication and flight-controller command mapping before higher-risk flight tests.</p>
+            <p>
+                The comparison study produced a working benchmark for three command modes. In the processed dataset,
+                the multimodal voice + SSVEP mode reached 98.8% accuracy, recorded 0 misclassifications, and rejected
+                7 commands when the safety-verification logic did not accept the input.
+            </p>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <strong>98.8%</strong>
+                    <span>Multimodal accuracy</span>
+                </div>
+                <div class="metric-card">
+                    <strong>2.08 s</strong>
+                    <span>Mean multimodal latency</span>
+                </div>
+                <div class="metric-card">
+                    <strong>0</strong>
+                    <span>Multimodal misclassifications</span>
+                </div>
+                <div class="metric-card">
+                    <strong>7</strong>
+                    <span>Rejected commands</span>
+                </div>
+            </div>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/comparison_mean_latency.png" alt="Mean latency comparison across voice-only, SSVEP-only, and multimodal modes">
+                <figcaption>Mean command-to-motion latency comparison across the tested control modes.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/comparison_boxplot.png" alt="Latency distribution boxplot across control modes">
+                <figcaption>Latency distribution plot used to describe spread and variability rather than only mean values.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/comparison_rejection.png" alt="Rejected command comparison showing safety-verification behavior">
+                <figcaption>Rejected commands are treated as evidence of the safety-verification logic: a command can be discarded when the multimodal agreement rule is not satisfied.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/comparison_accuracy.png" alt="Accuracy comparison across voice-only, SSVEP-only, and multimodal modes">
+                <figcaption>Accuracy comparison across the three control modes.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/comparison_per_command.png" alt="Per-command comparison across the tested drone commands">
+                <figcaption>Per-command analysis showing how individual command behavior differs across the control modes.</figcaption>
+            </figure>
         </section>
 
         <section>
             <h2>Limitations</h2>
-            <p>The system should not be presented as a completed autonomous flight-control solution. Current claims are limited to prototype integration, bench validation, and testbed development.</p>
+            <p>
+                The system should not be presented as a completed autonomous flight-control solution. Current claims are
+                limited to prototype integration, bench validation, and testbed development. Real-time EEG acquisition did
+                not produce reliable stimulus-locked SSVEP peaks during hardware testing, so the hardware command path used
+                keyboard-simulated SSVEP inputs to validate the verification logic.
+            </p>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/voice_only_bar.png" alt="Voice-only mean command-to-motion latency per command">
+                <figcaption>Voice-only latency baseline used to explain why the project shifted from unreliable real-time EEG acquisition toward a keyboard-simulated SSVEP validation path.</figcaption>
+            </figure>
+
+            <div class="figure-grid">
+                <figure class="project-figure">
+                    <img src="images/multi-uav/voice_only_boxplot.png" alt="Voice-only latency distribution per command">
+                    <figcaption>Voice-only latency distribution showing per-command variability and outliers.</figcaption>
+                </figure>
+
+                <figure class="project-figure">
+                    <img src="images/multi-uav/voice_only_trials.png" alt="Voice-only latency across all trials with outlier and misclassification markers">
+                    <figcaption>Trial-level latency plot showing outliers and a misclassification marker for transparent reporting.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <section>
