@@ -260,6 +260,32 @@
             margin-bottom: 0.5rem;
         }
 
+        .project-card-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem 1.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .project-card-meta p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .project-card-meta strong,
+        .project-tools-label {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .project-tools {
+            margin-top: 1.25rem;
+        }
+
+        .project-tools .tech-tags {
+            margin-top: 0.5rem;
+        }
+
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
@@ -398,35 +424,33 @@
         </section>
 
         <section id="projects">
-            <hd>Selected Engineering Projects</hd>
+            <h2>Selected Engineering Projects</h2>
             <p class="section-intro">Selected projects highlighting my experience in aerospace design, autonomous systems, experimental testing, and engineering analysis.</p>
             
             <div class="project-grid">
                 
                 <div class="project-card">
                     <div class="project-header">
-                        <a href="Multi_UAV_project" class="project-title-link">
-                            <h3 class="project-title">Multimodal UAV with Voice sensing and SSVEP </h3>
+                        <a href="Multi_UAV_project.html" class="project-title-link">
+                            <h3 class="project-title">Multimodal UAV with Voice Sensing and SSVEP</h3>
                         </a>
                         <span class="project-date">Jan 2026 – Present</span>
                     </div>
-                    <p class="project-summary">Building a hands-free UAV control testbed that maps EMG and voice commands into flight-controller inputs while preserving manual override capability.</p>
-                    
-                    <div class="project-details">
-                        <p><strong>Overview:</strong> Built an FPV drone testbed for a multimodal UAV control project, including avionics integration, wiring, hardware assembly, and communication between a Raspberry Pi, ESP32, and Betaflight-configured flight controller.</p>
-                        
-                        <h4>Problem & Approach</h4>
-                        <p>Traditional RC controllers require full manual engagement. I configured separate UART channels so the conventional RC receiver can remain available for manual override while an ESP32 relays decoded EMG and voice command signals from the Raspberry Pi into the flight controller.</p>
-                        
-                        <h4>Outcome</h4>
-                        <p>Currently validating the end-to-end signal path, troubleshooting power integrity, and performing flight readiness checks for safe test operations.</p>
+                    <p class="project-summary">Built an FPV drone testbed for hands-free UAV control, integrating ESP32 communication, Betaflight flight-controller input mapping, and bench-level latency testing.</p>
+
+                    <div class="project-card-meta">
+                        <p><strong>Role:</strong> Embedded / UAV integration</p>
+                        <p><strong>Status:</strong> Prototype + validation</p>
                     </div>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Raspberry Pi</span>
-                        <span class="tag">ESP32</span>
-                        <span class="tag">Betaflight</span>
+
+                    <div class="project-tools">
+                        <span class="project-tools-label">Tools:</span>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">Betaflight</span>
+                        </div>
                     </div>
                 </div>
 
@@ -437,23 +461,21 @@
                         </a>
                         <span class="project-date">Dec 2025 – Mar 2026</span>
                     </div>
-                    <p class="project-summary">Developed a data-backed systems evaluation model for autonomous security robot deployment with an industry partner.</p>
-                    
-                    <div class="project-details">
-                        <p><strong>Overview:</strong> A consulting-style engineering research project completed through the K-Capstone Challenge with the Consulate General of the Republic of Korea in Seattle. Working with DOGU, I helped translate stakeholder concerns into measurable evaluation criteria for autonomous patrol robots.</p>
-                        
-                        <h4>Problem & Approach</h4>
-                        <p>The client needed a structured way to compare deployment feasibility. I developed a quantitative index model using Need, Demand, Acceptance, and Concern, supported by literature review and frameworks such as UTAUT.</p>
-                        
-                        <h4>Outcome</h4>
-                        <p>Automated preprocessing and weighted scoring for 100+ survey respondents using Python and MATLAB, producing a clearer basis for deployment recommendations.</p>
+                    <p class="project-summary">Developed a data-backed evaluation model for autonomous security robot deployment, combining stakeholder criteria, survey processing, and weighted scoring.</p>
+
+                    <div class="project-card-meta">
+                        <p><strong>Role:</strong> Systems analysis / data modeling</p>
+                        <p><strong>Status:</strong> Completed research study</p>
                     </div>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">Python (Pandas)</span>
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Systems Engineering</span>
-                        <span class="tag">Trade Studies</span>
+
+                    <div class="project-tools">
+                        <span class="project-tools-label">Tools:</span>
+                        <div class="tech-tags">
+                            <span class="tag">Python (Pandas)</span>
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">Systems Engineering</span>
+                            <span class="tag">Trade Studies</span>
+                        </div>
                     </div>
                 </div>
 
@@ -464,23 +486,21 @@
                         </a>
                         <span class="project-date">May 2024 – June 2024</span>
                     </div>
-                    <p class="project-summary">Modeled rocket stability and manufactured flight hardware for a competitive sounding rocket design cycle.</p>
-                    
-                    <div class="project-details">
-                        <p><strong>Overview:</strong> A rapid-cycle launch vehicle project focused on stability analysis, mass distribution, and hands-on fabrication for an International Rocket Engineering Competition vehicle.</p>
-                        
-                        <h4>Problem & Approach</h4>
-                        <p>The vehicle required careful control of center of gravity, center of pressure, and apogee sensitivity across payload, recovery, and motor configurations. I used MATLAB and OpenRocket to analyze stability margins before transitioning to fabrication.</p>
-                        
-                        <h4>Outcome</h4>
-                        <p>Fabricated and assembled hardware including a Delrin nose cone and PVC airframe, supporting a build that matched the team's simulated stability requirements.</p>
+                    <p class="project-summary">Modeled stability and supported fabrication for a sounding rocket design cycle using OpenRocket/MATLAB analysis and hands-on hardware manufacturing.</p>
+
+                    <div class="project-card-meta">
+                        <p><strong>Role:</strong> Stability analysis / fabrication</p>
+                        <p><strong>Status:</strong> Completed build support</p>
                     </div>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">OpenRocket</span>
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">Machining</span>
-                        <span class="tag">Airframe Fabrication</span>
+
+                    <div class="project-tools">
+                        <span class="project-tools-label">Tools:</span>
+                        <div class="tech-tags">
+                            <span class="tag">OpenRocket</span>
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">Machining</span>
+                            <span class="tag">Airframe Fabrication</span>
+                        </div>
                     </div>
                 </div>
 
@@ -491,23 +511,21 @@
                         </a>
                         <span class="project-date">Aug 2024 – May 2025</span>
                     </div>
-                    <p class="project-summary">Designed and integrated an RC aircraft with attention to aerodynamic performance, avionics, propulsion, and weight and balance.</p>
-                    
-                    <div class="project-details">
-                        <p><strong>Overview:</strong> A full aircraft design-build project focused on converting mission requirements into an RC aircraft configuration that could be modeled, fabricated, assembled, and prepared for flight.</p>
-                        
-                        <h4>Problem & Approach</h4>
-                        <p>The aircraft required a balance of lift, drag, structural layout, propulsion, and payload constraints. I estimated aerodynamic parameters, modeled components in SolidWorks, and applied A&P maintenance knowledge during avionics and propulsion integration.</p>
-                        
-                        <h4>Outcome</h4>
-                        <p>Supported fabrication and assembly of a flight-ready airframe with integrated avionics, propulsion components, and weight-and-balance checks.</p>
+                    <p class="project-summary">Designed and integrated an RC aircraft through aerodynamic sizing, SolidWorks modeling, avionics integration, propulsion setup, and weight-and-balance checks.</p>
+
+                    <div class="project-card-meta">
+                        <p><strong>Role:</strong> Team lead / aircraft integration</p>
+                        <p><strong>Status:</strong> Flight-ready build preparation</p>
                     </div>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">SolidWorks</span>
-                        <span class="tag">Aircraft Design</span>
-                        <span class="tag">Avionics</span>
-                        <span class="tag">Weight & Balance</span>
+
+                    <div class="project-tools">
+                        <span class="project-tools-label">Tools:</span>
+                        <div class="tech-tags">
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Aircraft Design</span>
+                            <span class="tag">Avionics</span>
+                            <span class="tag">Weight & Balance</span>
+                        </div>
                     </div>
                 </div>
 
@@ -518,23 +536,21 @@
                         </a>
                         <span class="project-date">Mar 2024 – Apr 2024</span>
                     </div>
-                    <p class="project-summary">Designed, built, and successfully recovered a high-power rocket to achieve National Association of Rocketry (NAR) Level 1 Certification.</p>
-                    
-                    <div class="project-details">
-                        <p><strong>Overview:</strong> Serving as a practical foundation in launch vehicle mechanics and recovery systems, I led a design project for the STEM Rocketry Team at Everett Community College to build and launch a high-power amateur rocket.</p>
-                        
-                        <h4>Problem & Approach</h4>
-                        <p>A primary challenge during development was troubleshooting stability issues for a three-meter vehicle. I utilized simulation tools to verify the center of gravity (CG) and center of pressure (CP) relationship, adjusted the mass distribution, and applied hands-on fabrication techniques to assemble the airframe, motor mount, and parachute recovery system.</p>
-                        
-                        <h4>Outcome</h4>
-                        <p>Successfully launched and recovered the vehicle intact on an H/I class motor, officially earning my NAR Level 1 Certification and validating the aerodynamic stability corrections in a real-world flight.</p>
+                    <p class="project-summary">Designed, built, launched, and recovered a high-power rocket for NAR Level 1 certification, with focus on stability, recovery, and launch readiness.</p>
+
+                    <div class="project-card-meta">
+                        <p><strong>Role:</strong> Rocket design / fabrication / launch prep</p>
+                        <p><strong>Status:</strong> Certification completed</p>
                     </div>
-                    
-                    <div class="tech-tags">
-                        <span class="tag">High-Power Rocketry</span>
-                        <span class="tag">Aerodynamic Stability</span>
-                        <span class="tag">Recovery Systems</span>
-                        <span class="tag">Fabrication</span>
+
+                    <div class="project-tools">
+                        <span class="project-tools-label">Tools:</span>
+                        <div class="tech-tags">
+                            <span class="tag">High-Power Rocketry</span>
+                            <span class="tag">Aerodynamic Stability</span>
+                            <span class="tag">Recovery Systems</span>
+                            <span class="tag">Fabrication</span>
+                        </div>
                     </div>
                 </div>
 

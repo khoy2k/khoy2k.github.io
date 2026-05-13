@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimodal EMG-Controlled FPV Drone | Who Kang</title>
+    <title>Multimodal UAV with Voice Sensing and SSVEP | Who Kang</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,81 +22,86 @@
         }
 
         * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         a { color: var(--accent-color); text-decoration: none; }
         a:hover { color: #D8B4FE; }
+        .container { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; }
+        .back-link { display: inline-block; margin-bottom: 2rem; font-weight: 600; }
+        .eyebrow { font-family: 'Roboto Mono', monospace; color: var(--accent-color); font-size: 0.9rem; margin-bottom: 0.75rem; }
+        h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 1rem; }
+        h2 { font-size: 1.45rem; margin: 0 0 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color); }
+        p, li { color: var(--text-secondary); font-size: 1.05rem; }
+        .lead { max-width: 760px; color: var(--text-primary); font-size: 1.22rem; font-weight: 600; margin-bottom: 2rem; }
+        .snapshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 2rem 0 3rem; }
+        .snapshot-item { border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; padding: 1rem; }
+        .snapshot-label { display: block; font-family: 'Roboto Mono', monospace; color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.35rem; text-transform: uppercase; }
+        .snapshot-value { color: var(--text-primary); font-weight: 600; }
+        section { margin-top: 3rem; }
+        ul { padding-left: 1.25rem; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <a href="index.html#projects" class="back-link">Back to Projects</a>
 
-        .container {
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+        <div class="eyebrow">Jan 2026 - Present</div>
+        <h1>Multimodal UAV with Voice Sensing and SSVEP</h1>
+        <p class="lead">An FPV drone testbed for hands-free UAV control, integrating ESP32 communication, Betaflight flight-controller input mapping, and bench-level latency testing.</p>
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
+        <div class="tech-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Betaflight</span>
+        </div>
 
-        .eyebrow {
-            font-family: 'Roboto Mono', monospace;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
+        <section>
+            <h2>Overview</h2>
+            <p>This project explores hands-free UAV command input using voice sensing and SSVEP-based interaction concepts. The current platform is an FPV drone testbed used to validate communication flow, command mapping, and safety boundaries before flight testing.</p>
+        </section>
 
-        h1 {
-            font-size: 2.75rem;
-            line-height: 1.1;
-            margin: 0 0 1rem;
-        }
+        <section>
+            <h2>Problem & Approach</h2>
+            <p>Traditional RC control requires continuous manual input. The approach is to route decoded commands through embedded hardware into a Betaflight-configured flight controller while preserving conventional control paths for safety and manual override.</p>
+        </section>
 
-        h2 {
-            font-size: 1.45rem;
-            margin: 0 0 1rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-        }
+        <section>
+            <h2>System Architecture</h2>
+            <p>The planned system architecture is sensor input and command processing on a Raspberry Pi, ESP32 communication, flight-controller input mapping, and Betaflight configuration for command interpretation and safety checks.</p>
+        </section>
 
-        p, li {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-        }
+        <section>
+            <h2>My Role</h2>
+            <ul>
+                <li>Built and wired the FPV drone testbed.</li>
+                <li>Integrated ESP32 communication with the flight-controller input path.</li>
+                <li>Configured Betaflight input mapping for bench-level validation.</li>
+                <li>Prepared the system for latency and command-path testing.</li>
+            </ul>
+        </section>
 
-        .lead {
-            max-width: 760px;
-            color: var(--text-primary);
-            font-size: 1.22rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
+        <section>
+            <h2>Evidence</h2>
+            <p>Current evidence is centered on hardware assembly, wiring, Betaflight configuration, and bench-level communication checks. Images, diagrams, and test plots will be added after the artifact set is organized.</p>
+        </section>
 
-        .project-meta {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0 3rem;
-        }
+        <section>
+            <h2>Outcome</h2>
+            <p>The project has produced a working prototype path for validating embedded communication and flight-controller command mapping before higher-risk flight tests.</p>
+        </section>
 
-        .meta-item {
-            border: 1px solid var(--border-color);
-            background: var(--surface-color);
-            border-radius: 6px;
-            padding: 1rem;
-        }
+        <section>
+            <h2>Limitations</h2>
+            <p>The system should not be presented as a completed autonomous flight-control solution. Current claims are limited to prototype integration, bench validation, and testbed development.</p>
+        </section>
 
-        .meta-label {
-            display: block;
-            font-family: 'Roboto Mono', monospace;
-            color: var(--text-secondary);
-        }
-
+        <section>
+            <h2>Next Step</h2>
+            <p>Next steps include documenting latency results, adding architecture diagrams, improving command validation, and defining a safe staged flight-test plan.</p>
+        </section>
+    </main>
+</body>
+</html>
