@@ -110,9 +110,8 @@
                 rejected.
 
                 The system compares three control modes: voice only, SSVEP only, 
-                and voice combined with SSVEP. Seven commands are mapped across 
-                both input systems: TAKEOFF, STOP, LAND, RIGHT, FORWARD, BACKWARD, 
-                and LEFT.
+                and voice combined with SSVEP. Nine commands are mapped across 
+                both input systems: TAKEOFF, STOP, LAND, RIGHT, FORWARD, BACKWARD, LEFT, UP, and DOWN.
             </p>
         </section>
 
@@ -153,6 +152,7 @@
             <ul>
                 <li>Drone hardware assembly, soldering, and wiring.</li>
                 <li>Part selection and propulsion calculations.</li>
+                <li>DolphinRC F405 V3 flight controller configuration and Betaflight setup including receiver configuration, motor mapping, mode configuration, and safety behavior.</li>
                 <li>Betaflight setup including receiver configuration, motor mapping, mode configuration, and safety behavior.</li>
                 <li>ESP32 command routing and embedded interface setup.</li>
                 <li>Command pipeline integration connecting the processing layer to the flight controller</li>
@@ -180,9 +180,15 @@
         <section>
             <h2>Outcome</h2>
             <p>
-                The comparison study produced a working benchmark for three command modes. In the processed dataset,
-                the multimodal voice + SSVEP mode reached 98.8% accuracy, recorded 0 misclassifications, and rejected
-                7 commands when the safety-verification logic did not accept the input.
+                Across 270 trials spanning three control modes, the multimodal 
+                mode achieved 98.8% command accuracy and a mean latency of 2.08s, 
+                which was lower than both voice only (2.16s) and EEG only (2.62s). 
+                The EEG only mode showed higher latency variance and a lower 
+                accuracy of 95.4%, supporting the case for dual-channel 
+                verification. In the multimodal mode, 7 out of 90 trials were 
+                rejected due to channel disagreement or missing input, 
+                demonstrating that the safety logic actively filtered uncertain 
+                commands rather than executing them blindly.
             </p>
 
             <div class="metric-grid">
@@ -199,8 +205,8 @@
                     <span>Multimodal misclassifications</span>
                 </div>
                 <div class="metric-card">
-                    <strong>7</strong>
-                    <span>Rejected commands</span>
+                    <strong>7 / 1</strong>
+                    <span>Rejected commands / Safety-verification STOP overrides</span>
                 </div>
             </div>
 
@@ -233,10 +239,19 @@
         <section>
             <h2>Limitations</h2>
             <p>
-                The system should not be presented as a completed autonomous flight-control solution. Current claims are
-                limited to prototype integration, bench validation, and testbed development. Real-time EEG acquisition did
-                not produce reliable stimulus-locked SSVEP peaks during hardware testing, so the hardware command path used
-                keyboard-simulated SSVEP inputs to validate the verification logic.
+                Several important limitations should be stated clearly.
+                Real-time EEG acquisition did not produce clean SSVEP signals. 
+                Recorded peaks were concentrated in the 5 to 8 Hz range rather 
+                than at the target stimulus frequencies, indicating significant 
+                noise and weak stimulus-locked responses. As a result, SSVEP 
+                classification performance was evaluated using the open-source 
+                EEG dataset from Nakanishi et al. rather than live subject data.
+
+                Manual RC override was explored as a safety fallback but was not 
+                preserved in the final test configuration due to UART integration 
+                errors. The drone was not flown under live multimodal voice and 
+                SSVEP control. The baseline flight demonstration was completed 
+                under standard RC control only.
             </p>
 
             <figure class="project-figure">
@@ -252,14 +267,23 @@
 
                 <figure class="project-figure">
                     <img src="images/multi-uav/voice_only_trials.png" alt="Voice-only latency across all trials with outlier and misclassification markers">
-                    <figcaption>Trial-level latency plot showing outliers and a misclassification marker for transparent reporting.</figcaption>
+                    <figcaption>Trial-level latency plot for voice only mode, showing one 
+                                misclassification (UP trial 1, executed as STOP) and one 
+                                outlier (UP trial 5, 4.999s) for transparent reporting.
+                    </figcaption>
                 </figure>
             </div>
         </section>
 
         <section>
             <h2>Next Step</h2>
-            <p>Next steps include documenting latency results, adding architecture diagrams, improving command validation, and defining a safe staged flight-test plan.</p>
+            <p>Immediate next steps include resolving the UART integration issue 
+                to restore a reliable manual RC override path, and improving 
+                real-time EEG signal quality through better electrode placement 
+                and noise shielding. Longer-term, the goal is to validate the 
+                full multimodal pipeline under actual flight conditions in a 
+                controlled outdoor environment, using live SSVEP classification 
+                rather than keyboard-simulated inputs.</p>
         </section>
     </main>
 </body>
