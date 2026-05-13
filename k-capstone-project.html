@@ -44,48 +44,116 @@
         <div class="tech-tags">
             <span class="tag">Python (Pandas)</span>
             <span class="tag">MATLAB</span>
-            <span class="tag">Systems Engineering</span>
-            <span class="tag">Trade Studies</span>
+            <span class="tag">Survey Analysis</span>
+            <span class="tag">Feasibility Modeling</span>
         </div>
 
         <section>
             <h2>Overview</h2>
-            <p>This project evaluated whether autonomous patrol robots could be deployed in public or facility environments with acceptable technical, operational, and stakeholder conditions.</p>
+            <p>
+                This project was a 2nd-place entry in the K-Capstone Challenge, 
+                organized by the Consulate General of the Republic of Korea in 
+                Seattle. Our five-person interdisciplinary team was assigned to 
+                evaluate the U.S. market-entry feasibility of DOGU Robotics, a 
+                Korean company developing indoor and outdoor autonomous patrol 
+                and service robots. The deliverable was a 10-minute final 
+                presentation and market-entry strategy recommendation.
+            </p>
         </section>
 
         <section>
             <h2>Problem & Approach</h2>
-            <p>The core problem was turning broad stakeholder concerns into measurable criteria. The approach used a weighted evaluation model built around need, demand, acceptance, and concern, supported by survey analysis and literature review.</p>
+            <p>
+               The core challenge was turning broad stakeholder concerns into a 
+                quantified decision framework. Early work focused on market 
+                research and competitor benchmarking, but after feedback the 
+                direction shifted toward a structured feasibility index. The 
+                team developed a Robot Feasibility Index, or RFI, informed by 
+                UTAUT and SERVQUAL frameworks, organized around five factors: 
+                Need, Demand, Acceptance, Concern, and Gate. This allowed 
+                deployment environments to be scored and compared on a 
+                consistent basis.
+            </p>
         </section>
 
         <section>
-            <h2>System Architecture</h2>
-            <p>The project architecture was an evaluation workflow: stakeholder needs, survey responses, criteria weighting, preprocessing, scoring, and final feasibility interpretation.</p>
+            <h2>Analysis Framework</h2>
+            <p>
+                The RFI evaluated three deployment scenarios: indoor campus, 
+                outdoor campus, and hospital environments. Data sources included 
+                113 usable student survey responses collected via Google Forms 
+                and stakeholder interview inputs from approximately 20 people, 
+                including UWPD, UW facilities staff, healthcare workers, and 
+                administrators. Survey responses and interview inputs were mapped 
+                onto the five RFI factors and scored to produce a final 
+                feasibility percentage for each deployment scenario.
+
+                Competitor benchmarking compared DOGU Robotics' IROI and 
+                Patrover against robots including Knightscope K5 and SMP 
+                Robotics Argus, covering patrol duration, weather resistance, 
+                sensor configuration, autonomous docking, and pricing models.
+
+            </p>
         </section>
 
         <section>
             <h2>My Role</h2>
+            <p>
+                Within the five-person team, my specific contributions included:
+            </p>
             <ul>
-                <li>Helped structure the evaluation criteria and scoring model.</li>
-                <li>Processed survey data from 100+ respondents.</li>
-                <li>Automated weighted scoring using Python and MATLAB.</li>
-                <li>Supported recommendation framing for the industry partner.</li>
+                <li>Helped shift the project from broad market research 
+                into a quantified feasibility-index approach.</li>
+                <li>Proposed and developed the NDAC framework structure 
+                connecting Need, Demand, Acceptance, and Concern factors.</li>
+                <li>Drafted the initial Python and pandas analysis workflow 
+                for survey preprocessing and weighted scoring.</li>
+                <li>Connected UTAUT and SERVQUAL concepts to the RFI 
+                interpretation and factor definitions.</li>
+                <li>Contributed to the final presentation covering RFI 
+                logic, factor definitions, and deployment scenario 
+                interpretation.</li>
             </ul>
+            <p>
+                Note: A CSE teammate revised and finalized the analysis 
+                code. An IE teammate produced some graphs in R. Stakeholder 
+                interviews were conducted at the team level.
+            </p>
         </section>
 
         <section>
             <h2>Evidence</h2>
-            <p>Evidence includes survey data processing logic, weighted scoring outputs, framework notes, and presentation/report materials. Visual artifacts will be added after review for shareability.</p>
+            <p>
+
+            </p>
         </section>
 
         <section>
             <h2>Outcome</h2>
-            <p>The project produced a structured basis for evaluating deployment feasibility and communicating robot adoption tradeoffs to the industry partner.</p>
+            <p>
+                The RFI produced quantified feasibility scores across three 
+                deployment scenarios: indoor campus at 46.79%, outdoor campus 
+                at 46.24%, and hospital at 50.40%. Student survey results showed 
+                approximately 67% support for robot adoption, with the most 
+                common concerns being overreliance (63%) and privacy invasion 
+                (45%). The final recommendation reframed DOGU Robotics' robots 
+                from surveillance devices into integrated facility and operations 
+                support tools, suggesting pilot deployment starting with hospital 
+                environments based on the highest RFI score.
+            </p>
         </section>
 
         <section>
             <h2>Limitations</h2>
-            <p>The results should be interpreted as a structured feasibility study, not a final field deployment validation. The study depended on survey data, assumptions, and scope constraints.</p>
+            <p>
+                This was a market-entry feasibility study, not a robotics 
+                hardware engineering project or a field deployment validation. 
+                Results depended on survey data quality, stakeholder interview 
+                scope, and framework assumptions. The RFI scoring reflects the 
+                study conditions and should not be interpreted as a definitive 
+                deployment recommendation. Expert interviews were conducted at 
+                the team level and not independently verified.
+            </p>
         </section>
 
         <section>
