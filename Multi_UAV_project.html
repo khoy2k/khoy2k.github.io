@@ -49,7 +49,11 @@
 
         <div class="eyebrow">Jan 2026 - Present</div>
         <h1>Multimodal UAV with Voice Sensing and SSVEP</h1>
-        <p class="lead">An FPV drone testbed for hands-free UAV control, integrating ESP32 communication, Betaflight flight-controller input mapping, and bench-level latency testing.</p>
+        <p class="lead">A custom UAV testbed for hands-free drone control, integrating 
+            voice recognition and SSVEP-based command verification through 
+            ESP32 routing, Betaflight flight-controller configuration, and 
+            bench-level latency testing across three control modes.
+        </p>
 
         <div class="tech-tags">
             <span class="tag">Python</span>
@@ -60,32 +64,103 @@
 
         <section>
             <h2>Overview</h2>
-            <p>This project explores hands-free UAV command input using voice sensing and SSVEP-based interaction concepts. The current platform is an FPV drone testbed used to validate communication flow, command mapping, and safety boundaries before flight testing.</p>
+            <p>
+            This project was developed as part of the UW Undergraduate 
+            Symposium by a four-person interdisciplinary team: one Aeronautics 
+            & Astronautics student (me), one ECE student, one CS student, and 
+            one Biochemistry student. The goal was to build a safer multimodal 
+            UAV control system by combining voice recognition with SSVEP-based 
+            command verification, so that a drone command would only execute 
+            when both input systems agreed.
+
+            I was the primary contributor for UAV hardware, drone integration, 
+            flight controller setup, the hardware command pipeline, safety and 
+            testing procedures, and a significant portion of the software 
+            integration work.
+            </p>
         </section>
 
         <section>
             <h2>Problem & Approach</h2>
-            <p>Traditional RC control requires continuous manual input. The approach is to route decoded commands through embedded hardware into a Betaflight-configured flight controller while preserving conventional control paths for safety and manual override.</p>
+            <p>
+                Voice recognition offers fast and intuitive drone control, but it 
+                is vulnerable to background noise, pronunciation variation, and 
+                misclassification. Relying on a single input channel increases the 
+                risk of unintended command execution. To reduce this risk, the 
+                project combined voice recognition with SSVEP-based verification 
+                as a second confirmation layer.
+
+                SSVEP, or steady-state visual evoked potential, is a brain response 
+                that occurs when a person focuses on a flickering visual stimulus. 
+                The EEG signal at the stimulus frequency increases measurably, 
+                which allows classification of the intended command based on which 
+                frequency the user is attending to. In the multimodal mode, a drone 
+                command is only executed when the voice prediction and the SSVEP 
+                prediction match. If the two predictions disagree, the command is 
+                rejected.
+
+                The system compares three control modes: voice only, SSVEP only, 
+                and voice combined with SSVEP. Seven commands are mapped across 
+                both input systems: TAKEOFF, STOP, LAND, RIGHT, FORWARD, BACKWARD, 
+                and LEFT.
+            </p>
         </section>
 
         <section>
             <h2>System Architecture</h2>
-            <p>The planned system architecture is sensor input and command processing on a Raspberry Pi, ESP32 communication, flight-controller input mapping, and Betaflight configuration for command interpretation and safety checks.</p>
+            <p>
+                Voice commands are classified using a Vosk-based speech recognition 
+                model running on a host machine. SSVEP commands are classified using 
+                Canonical Correlation Analysis, or CCA, evaluated against a set of 
+                target stimulus frequencies ranging from 9.25 Hz to 14.75 Hz. Each 
+                of the seven drone commands is mapped to a specific SSVEP frequency.
+
+                The CCA output confidence score is thresholded at 0.566, determined 
+                using Youden's J Index, to filter out low-confidence classifications. 
+                In multimodal mode, the command routing layer compares the voice 
+                prediction and the SSVEP prediction before forwarding any command 
+                to the flight controller.
+
+                On the hardware side, the command pipeline routes through an ESP32 
+                to the DolphinRC F405 V3 flight controller running Betaflight. The 
+                flight controller interprets incoming commands and drives motor 
+                outputs accordingly. Because real-time EEG acquisition produced 
+                noisy signals without clear stimulus-locked peaks at the target 
+                frequencies, SSVEP commands during hardware testing were simulated 
+                using keyboard inputs mapped to the seven target frequencies. This 
+                decision is discussed further in the Limitations section.
+
+            </p>
         </section>
 
         <section>
             <h2>My Role</h2>
+            <p>
+                Within the four-person team, I was responsible for nearly all UAV 
+                hardware work and contributed significantly to the software pipeline 
+                as well. My specific contributions included:
+            </p>
             <ul>
-                <li>Built and wired the FPV drone testbed.</li>
-                <li>Integrated ESP32 communication with the flight-controller input path.</li>
-                <li>Configured Betaflight input mapping for bench-level validation.</li>
-                <li>Prepared the system for latency and command-path testing.</li>
+                <li>Drone hardware assembly, soldering, and wiring.</li>
+                <li>Part selection and propulsion calculations.</li>
+                <li>Betaflight setup including receiver configuration, motor mapping, mode configuration, and safety behavior.</li>
+                <li>ESP32 command routing and embedded interface setup.</li>
+                <li>Command pipeline integration connecting the processing layer to the flight controller</li>
+                <li>Latency measurement pipeline design and data collection across all three control modes</li>
+                <li>Baseline RC flight demonstration to verify airframe, motor, and flight controller readiness</li>
             </ul>
         </section>
 
         <section>
             <h2>Evidence</h2>
-            <p>Current evidence is centered on hardware assembly, wiring, Betaflight configuration, and bench-level communication checks. Images, diagrams, and test plots will be added after the artifact set is organized.</p>
+            <p>The following artifacts support this project:</p>
+            <ul>
+                <li>Project code repository with software integration, command routing, and latency measurement scripts.</li>
+                    <p>
+                        
+                    </p>
+                <li>Latency measurement data comparing voice-only, SSVEP-only, and multimodal control modes.</li>
+                <li>Baseline RC flight demonstration video showing successful takeoff, hover, directional control, and landing using the integrated system.</li>
         </section>
 
         <section>
