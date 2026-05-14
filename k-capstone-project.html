@@ -22,27 +22,30 @@
         h2 { font-size: 1.45rem; margin: 0 0 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color); }
         p, li { color: var(--text-secondary); font-size: 1.05rem; }
         .lead { max-width: 760px; color: var(--text-primary); font-size: 1.22rem; font-weight: 600; margin-bottom: 2rem; }
-        .snapshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 2rem 0 3rem; }
-        .snapshot-item { border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; padding: 1rem; }
-        .snapshot-label { display: block; font-family: 'Roboto Mono', monospace; color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.35rem; text-transform: uppercase; }
-        .snapshot-value { color: var(--text-primary); font-weight: 600; }
         .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 0.85rem; margin: 1.25rem 0 2rem; }
         .metric-card { min-height: 112px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(124, 58, 237, 0.35); background: linear-gradient(180deg, rgba(124, 58, 237, 0.14), rgba(26, 29, 36, 0.92)); border-radius: 6px; padding: 1rem; }
         .metric-card-accent { border-color: var(--accent-color); background: linear-gradient(180deg, rgba(124, 58, 237, 0.24), rgba(26, 29, 36, 0.95)); }
-        .metric-value, .metric-card strong { display: block; color: var(--text-primary); font-size: 1.7rem; line-height: 1; font-weight: 700; letter-spacing: 0; }
-        .metric-label, .metric-card > span:not(.metric-value) { margin-top: 0.75rem; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; font-size: 0.76rem; line-height: 1.35; text-transform: uppercase; }
+        .metric-value { display: block; color: var(--text-primary); font-size: 1.7rem; line-height: 1; font-weight: 700; }
+        .metric-label { margin-top: 0.75rem; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; font-size: 0.76rem; line-height: 1.35; text-transform: uppercase; }
         section { margin-top: 3rem; }
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.32rem 0.9rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.87rem; font-weight: 500; }
         .project-figure { margin: 1.5rem 0; border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; overflow: hidden; }
         .project-figure img { display: block; width: 100%; height: auto; }
-        .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }        .toc { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.4rem; z-index: 50; }
+        .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }
+        .evidence-label { font-family: 'Roboto Mono', monospace; font-size: 0.85rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 0.08em; margin: 2rem 0 0.5rem; }
+        .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th { text-align: left; padding: 0.65rem 0.85rem; font-family: 'Roboto Mono', monospace; font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+        td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; line-height: 1.55; }
+        tr:last-child td { border-bottom: none; }
+        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; }
+        .toc { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.4rem; z-index: 50; }
         .toc a { font-family: 'Roboto Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); text-decoration: none; padding: 0.18rem 0 0.18rem 0.75rem; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; display: block; }
         .toc a:hover { color: var(--text-primary); border-left-color: var(--border-color); }
         .toc a.active { color: var(--accent-color); border-left-color: var(--accent-color); }
         @media (max-width: 1180px) { .toc { display: none; } }
-
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -50,12 +53,17 @@
     <main class="container">
         <a href="index.html#projects" class="back-link">Back to Projects</a>
 
-        <div class="eyebrow">Dec 2025 - Mar 2026</div>
+        <div class="eyebrow">Dec 2025 – Mar 2026</div>
         <h1>Autonomous Patrol Robot Systems Analysis</h1>
-        <p class="lead">A systems engineering study for evaluating autonomous security robot deployment through stakeholder criteria, survey processing, and weighted scoring.</p>
+        <p class="lead">
+            A systems analysis study evaluating U.S. market-entry feasibility for DOGU Robotics,
+            a Korean autonomous security robot company. Developed a Robot Feasibility Index
+            from 113 survey responses and 20 stakeholder interviews. Finished 2nd in the
+            K-Capstone competition.
+        </p>
 
         <div class="tech-tags">
-            <span class="tag">Python (Pandas)</span>
+            <span class="tag">Python / Pandas</span>
             <span class="tag">MATLAB</span>
             <span class="tag">Survey Analysis</span>
             <span class="tag">Feasibility Modeling</span>
@@ -64,34 +72,24 @@
         <section>
             <h2>Overview</h2>
             <p>
-                A 2nd-place K-Capstone entry that developed and scored a
-                Robot Feasibility Index across three deployment environments
-                using a Python and pandas analysis pipeline built from 113
-                student survey responses and stakeholder interview inputs.
-                Indoor campus scored 46.79%, outdoor campus 46.24%, and
-                hospital 50.4% across Need, Demand, Acceptance, Concern,
-                and Gate factors.
+                A five person interdisciplinary team was assigned to evaluate DOGU Robotics'
+                U.S. market entry across three deployment environments: indoor campus,
+                outdoor campus, and hospital. The deliverable was a 10-minute final
+                presentation with a market entry strategy recommendation.
             </p>
             <p>
-                Our five person interdisciplinary team was assigned to
-                evaluate the U.S. market-entry feasibility of DOGU Robotics,
-                a Korean company developing indoor and outdoor autonomous
-                security patrol and service robots. The deliverable was a 10-minute
-                final presentation and market-entry strategy recommendation.
+                The team developed a Robot Feasibility Index (RFI) informed by UTAUT
+                and SERVQUAL frameworks, scoring each deployment environment across
+                five factors: Need, Demand, Acceptance, Concern, and Gate. The analysis
+                drew from 113 student survey responses and approximately 20 stakeholder
+                interviews including UWPD, UW facilities staff, healthcare workers, and
+                administrators.
             </p>
 
             <div class="metric-grid">
                 <div class="metric-card metric-card-accent">
                     <span class="metric-value">2nd</span>
                     <span class="metric-label">K-Capstone finish</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">46.79%</span>
-                    <span class="metric-label">Indoor campus RFI</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">46.24%</span>
-                    <span class="metric-label">Outdoor campus RFI</span>
                 </div>
                 <div class="metric-card">
                     <span class="metric-value">113</span>
@@ -101,141 +99,172 @@
                     <span class="metric-value">~20</span>
                     <span class="metric-label">Stakeholder interviews</span>
                 </div>
+                <div class="metric-card">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">RFI factors</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">3</span>
+                    <span class="metric-label">Deployment scenarios</span>
+                </div>
             </div>
         </section>
 
         <section>
             <h2>Problem & Approach</h2>
             <p>
-               The core challenge was turning broad stakeholder concerns into a 
-                quantified decision framework. Early work focused on market 
-                research and competitor benchmarking, but after feedback the 
-                direction shifted toward a structured feasibility index. The 
-                team developed a Robot Feasibility Index, or RFI, informed by 
-                UTAUT and SERVQUAL frameworks, organized around five factors: 
-                Need, Demand, Acceptance, Concern, and Gate. This allowed 
-                deployment environments to be scored and compared on a 
-                consistent basis.
+                The core challenge was translating broad stakeholder concerns into a
+                quantified decision framework. Early work focused on market research
+                and competitor benchmarking, but after client feedback the direction
+                shifted toward a structured feasibility index.
             </p>
-        </section>
-
-        <section>
-            <h2>Analysis Framework</h2>
             <p>
-                The RFI evaluated three deployment scenarios: indoor campus, 
-                outdoor campus, and hospital environments. Data sources included 
-                113 usable student survey responses collected via Google Forms 
-                and stakeholder interview inputs from approximately 20 people, 
-                including UWPD, UW facilities staff, healthcare workers, and 
-                administrators. Survey responses and interview inputs were mapped 
-                onto the five RFI factors and scored to produce a final 
-                feasibility percentage for each deployment scenario.
-
-                Competitor benchmarking compared DOGU Robotics' IROI and 
-                Patrover against robots including Knightscope K5 and SMP 
-                Robotics Argus, covering patrol duration, weather resistance, 
-                sensor configuration, autonomous docking, and pricing models.
-
+                The RFI framework scores each deployment environment on five factors.
+                Survey responses and interview inputs were mapped onto the factors and
+                weighted to produce a final feasibility percentage per scenario.
+                Competitor benchmarking compared DOGU's IROI and Patrover models
+                against Knightscope K5 and SMP Robotics Argus across patrol duration,
+                weather resistance, sensor configuration, autonomous docking, and pricing.
             </p>
 
-            <figure class="project-figure">
-                <img src="images/k-capstone/kcap_expert_vs_student.png" alt="Expert and student NDAC scores by environment">
-                <figcaption>Expert and student NDAC scores by environment, showing how the two data sources were weighted differently across factors.</figcaption>
-            </figure>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>RFI Factor</th>
+                            <th>What it measures</th>
+                            <th>Data source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Need</td>
+                            <td>Functional demand for security coverage in the environment</td>
+                            <td>Expert interviews</td>
+                        </tr>
+                        <tr>
+                            <td>Demand</td>
+                            <td>User-stated desired features and use cases</td>
+                            <td>Student survey</td>
+                        </tr>
+                        <tr>
+                            <td>Acceptance</td>
+                            <td>Willingness to adopt and interact with the robot</td>
+                            <td>Student survey</td>
+                        </tr>
+                        <tr>
+                            <td>Concern</td>
+                            <td>Privacy, safety, and overreliance concerns</td>
+                            <td>Student survey</td>
+                        </tr>
+                        <tr>
+                            <td>Gate</td>
+                            <td>Operational and regulatory deployment feasibility</td>
+                            <td>Expert interviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section>
             <h2>My Role</h2>
             <p>
-                Within the five-person team, my specific contributions included:
+                Within the five person team, my contributions spanned the analytical
+                framework and software pipeline.
             </p>
             <ul>
-                <li>Helped shift the project from broad market research 
-                into a quantified feasibility-index approach.</li>
-                <li>Proposed and developed the NDAC framework structure 
-                connecting Need, Demand, Acceptance, and Concern factors.</li>
-                <li>Drafted the initial Python and pandas analysis workflow 
-                for survey preprocessing and weighted scoring.</li>
-                <li>Connected UTAUT and SERVQUAL concepts to the RFI 
-                interpretation and factor definitions.</li>
-                <li>Contributed to the final presentation covering RFI 
-                logic, factor definitions, and deployment scenario 
-                interpretation.</li>
+                <li>Drove the shift from broad market research toward the quantified RFI approach.</li>
+                <li>Proposed and developed the NDAC factor structure connecting Need, Demand, Acceptance, and Concern.</li>
+                <li>Drafted the initial Python and pandas analysis workflow for survey preprocessing and weighted scoring.</li>
+                <li>Connected UTAUT and SERVQUAL frameworks to the RFI factor definitions and interpretation logic.</li>
+                <li>Contributed to the final presentation covering RFI methodology, factor definitions, and deployment scenario results.</li>
             </ul>
             <p>
-                Note: A CSE teammate revised and finalized the analysis 
-                code. An IE teammate produced hospital graphs in R. Stakeholder 
-                interviews and student surveys were conducted at the team level.
+                A CSE teammate revised and finalized the analysis code. An IE teammate
+                conducted the hospital analysis in R. Stakeholder interviews and student
+                surveys were conducted at the team level.
             </p>
-        </section>
 
-        <section>
-            <h2>Evidence</h2>
-            <p>
-                Analysis code and processed data files are available in the 
-                project repository. Key artifacts include the Python and pandas 
-                analysis workflow, weighted RFI scoring outputs, student survey 
-                processed results, and expert interview scoring data.
-            </p>
+            <figure class="project-figure">
+                <img src="images/k-capstone/kcap_expert_vs_student.png" alt="Expert and student NDAC scores by environment">
+                <figcaption>Expert and student NDAC scores by deployment environment, showing differential weighting across factors.</figcaption>
+            </figure>
         </section>
 
         <section>
             <h2>Outcome</h2>
+            <p>
+                The RFI produced comparable scores for both campus environments,
+                with hospital scoring highest. Student survey results showed strong
+                baseline support but significant concern around overreliance and privacy.
+            </p>
 
-            <div class="metric-grid">
-                <div class="metric-card">
-                    <span class="metric-value">46.79%</span>
-                    <span class="metric-label">Indoor campus RFI</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">46.24%</span>
-                    <span class="metric-label">Outdoor campus RFI</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">67%</span>
-                    <span class="metric-label">Survey support rate</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">63%</span>
-                    <span class="metric-label">Top concern: overreliance</span>
-                </div>
-                <div class="metric-card metric-card-accent">
-                    <span class="metric-value">2nd</span>
-                    <span class="metric-label">K-Capstone finish</span>
-                </div>  
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Deployment</th>
+                            <th>RFI Score</th>
+                            <th>Key finding</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Indoor Campus</td>
+                            <td>46.79%</td>
+                            <td>Not yet ready — acceptance and concern gaps persist</td>
+                        </tr>
+                        <tr>
+                            <td>Outdoor Campus</td>
+                            <td>46.24%</td>
+                            <td>Not yet ready — similar profile to indoor; 0.55 pt difference</td>
+                        </tr>
+                        <tr>
+                            <td>Hospital</td>
+                            <td>50.4%</td>
+                            <td>Strongest near-term entry point for U.S. market</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <p>
-                The RFI produced quantified feasibility scores across two campus 
-                deployment scenarios: indoor campus at 46.79% and outdoor campus 
-                at 46.24%, a difference of 0.55 percentage points. The similar 
-                scores suggest that campus indoor and outdoor deployment feasibility 
-                are comparable under the current data conditions.
-
-                Student survey results showed strong baseline support for robot 
-                adoption: approximately 67% in support, 26% neutral, and 7% 
-                opposed. The most commonly reported concerns were overreliance 
-                at 63% and privacy invasion at 45%, which the team addressed 
-                through recommendations for event-based recording and on-device 
-                AI processing rather than continuous surveillance.
-
-                On the demand side, outdoor campus respondents identified real-time 
-                detection and discovery at 67%, emergency communication at 65%, 
-                and nighttime escort or patrol support at 64% as the top three 
-                most valued functions. Indoor campus expert interviews emphasized 
-                facility condition monitoring, space utilization data collection, 
-                and after-hours security coverage as priority use cases.
-
-                The team's overall conclusion was that campus deployment, both 
-                indoor and outdoor, requires further improvement before 
-                large-scale adoption. The similar indoor and outdoor RFI scores 
-                of 46.79% and 46.24% suggest that neither campus environment 
-                is clearly ready for deployment without addressing the 
-                identified gaps in acceptance, concern mitigation, and 
-                operational feasibility. Hospital deployment, supported by 
-                the highest RFI score, was identified as the more promising 
-                near-term entry point for DOGU Robotics in the U.S. market.
-            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Survey finding</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Overall support rate</td>
+                            <td>67% support / 26% neutral / 7% opposed</td>
+                        </tr>
+                        <tr>
+                            <td>Top concern: overreliance</td>
+                            <td>63% of respondents</td>
+                        </tr>
+                        <tr>
+                            <td>Top concern: privacy invasion</td>
+                            <td>45% of respondents</td>
+                        </tr>
+                        <tr>
+                            <td>Top demand (outdoor): real-time detection</td>
+                            <td>67% of respondents</td>
+                        </tr>
+                        <tr>
+                            <td>Top demand (outdoor): emergency communication</td>
+                            <td>65% of respondents</td>
+                        </tr>
+                        <tr>
+                            <td>Top demand (outdoor): nighttime escort / patrol</td>
+                            <td>64% of respondents</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_rfi_final.png" alt="Final Robot Feasibility Index results by deployment environment">
@@ -244,84 +273,59 @@
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_ndac_breakdown.png" alt="NDAC breakdown by deployment environment">
-                <figcaption>NDAC factor breakdown used for detailed feasibility analysis.</figcaption>
+                <figcaption>NDAC factor breakdown across deployment environments.</figcaption>
             </figure>
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_gate_score.png" alt="Gate score by deployment environment">
-                <figcaption>Gate score comparison used to evaluate operational deployment feasibility.</figcaption>
+                <figcaption>Gate score comparison evaluating operational deployment feasibility.</figcaption>
             </figure>
         </section>
 
         <section>
             <h2>Limitations</h2>
             <p>
-                The most significant was a misalignment between the team's initial 
-                approach and the client's actual goals. The team originally aimed 
-                to conduct a direct technical analysis of DOGU Robotics' product 
-                lineup, identifying competitive gaps and market positioning 
-                opportunities against existing patrol robots. However, DOGU 
-                Robotics primarily wanted a broad market research study focused 
-                on campus deployment feasibility rather than a product-level 
-                competitive analysis. As a result, the technical benchmarking 
-                work from the early competitor analysis phase was not carried 
-                forward into the final framework.
-
-                This misalignment also caused the project direction to shift 
-                multiple times. The decision to develop the Robot Feasibility 
-                Index was made after the student survey had already been 
-                collected. Because the survey was not originally designed around 
-                the RFI framework, not all questions could be cleanly mapped 
-                onto the Need, Demand, Acceptance, Concern, and Gate factors. 
-                Only the questions that were compatible with the RFI structure 
-                were extracted and scored using Python and pandas. This means 
-                the RFI scores reflect the subset of available survey data 
-                rather than a fully purpose-built measurement instrument.
-
-                The hospital deployment analysis was conducted by a teammate 
-                using R, following a similar RFI methodology. Because I was 
-                not directly involved in that calculation, I cannot fully 
-                verify the hospital scoring assumptions or weighting decisions. 
-                The hospital RFI result of 50.4% was the highest across the 
-                three environments and formed the basis for the team's 
-                conclusion that hospital deployment showed relatively stronger 
-                feasibility compared to campus environments.
-
-                These limitations reflect the realities of applied industry 
-                collaboration: client goals evolve, data collection precedes 
-                framework decisions, and scope constraints require pragmatic 
-                tradeoffs. Recognizing these constraints is part of honest 
-                engineering documentation.
+                The most significant issue was a scope misalignment between the team's
+                initial approach and the client's actual goals. The team originally
+                aimed at a product-level competitive analysis, but DOGU Robotics wanted
+                a broad market feasibility study. The technical benchmarking work from
+                the early competitor analysis phase was not carried into the final framework.
+            </p>
+            <p>
+                Because the student survey was collected before the RFI framework was
+                finalized, not all survey questions mapped cleanly onto the five factors.
+                Only compatible questions were extracted and scored, so the RFI reflects
+                a subset of available data rather than a purpose-built instrument.
+            </p>
+            <p>
+                The hospital analysis was conducted by a teammate using R. I was not
+                directly involved in that calculation and cannot fully verify the
+                hospital scoring assumptions. The hospital RFI result of 50.4% formed
+                the basis for the team's final market entry recommendation.
             </p>
         </section>
 
         <section>
             <h2>Reflection</h2>
             <p>
-                This project was my first experience working directly with an 
-                industry client on a real market entry problem. The most 
-                valuable lesson was understanding how commercial deployment 
-                decisions are actually made, not purely through technical 
-                analysis, but through a combination of stakeholder needs, 
-                operational constraints, regulatory environment, and user 
-                acceptance.
-
-                One thing that became clear is how differently industry clients 
-                frame problems compared to academic settings. DOGU Robotics was 
-                not looking for a competitive teardown. They wanted to understand 
-                whether their product fit a specific market and where to start. 
-                That shift in framing changed how I thought about what useful 
-                analysis means in an industry context.
-
-                The RFI framework itself taught me that quantifying qualitative 
-                stakeholder concerns is both possible and necessary for 
-                data-driven market decisions. Before entering a market, 
-                understanding where need, demand, acceptance, and concern sit 
-                and how they interact is at least as important as the technical 
-                capabilities of the product itself.
+                This was my first direct experience working with an industry client
+                on a real market entry problem. The most useful lesson was understanding
+                how commercial deployment decisions are actually made — not purely
+                through technical analysis, but through stakeholder needs, operational
+                constraints, and user acceptance.
+            </p>
+            <p>
+                The scope misalignment early in the project was a clear lesson in
+                requirements clarification. In a professional context, misreading
+                the client's actual question costs more time than asking for
+                clarification upfront would have. The RFI framework itself was a
+                useful exercise in translating qualitative stakeholder concerns into
+                a structured, comparable score — a skill that transfers directly to
+                engineering trade studies and design review processes.
             </p>
         </section>
     </main>
+
     <nav class="toc" id="toc" aria-label="Page sections"></nav>
     <script>
     (function(){
