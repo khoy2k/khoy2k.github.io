@@ -30,6 +30,9 @@
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
         .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        .project-figure { margin: 1.5rem 0; border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; overflow: hidden; }
+        .project-figure img { display: block; width: 100%; height: auto; }
+        .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -94,6 +97,11 @@
                 sensor configuration, autonomous docking, and pricing models.
 
             </p>
+
+            <figure class="project-figure">
+                <img src="images/k-capstone/kcap_expert_vs_student.png" alt="Expert and student NDAC scores by environment">
+                <figcaption>Expert and student NDAC scores by environment, showing how the two data sources were weighted differently across factors.</figcaption>
+            </figure>
         </section>
 
         <section>
@@ -130,17 +138,70 @@
 
         <section>
             <h2>Outcome</h2>
+            
+             <div class="metric-grid">
+                <div class="metric-card">
+                    <strong>Indoor RFI: 46.79%</strong>
+                </div>
+                <div class="metric-card">
+                    <strong>Outdoor RFI:  46.24%</strong>
+                </div>
+                <div class="metric-card">
+                    <strong>Survey support rate:  67%</strong>
+                </div>
+                <div class="metric-card">
+                    <strong>Top concern (overreliance):  63%</strong>
+                </div>
+                <div class="metric-card">
+                    <strong>2nd place finish</strong>
+                </div>  
+            </div>
+
+
             <p>
-                The RFI produced quantified feasibility scores across three 
-                deployment scenarios: indoor campus at 46.79%, outdoor campus 
-                at 46.24%, and hospital at 50.40%. Student survey results showed 
-                approximately 67% support for robot adoption, with the most 
-                common concerns being overreliance (63%) and privacy invasion 
-                (45%). The final recommendation reframed DOGU Robotics' robots 
+                The RFI produced quantified feasibility scores across two campus 
+                deployment scenarios: indoor campus at 46.79% and outdoor campus 
+                at 46.24%, a difference of 0.55 percentage points. The similar 
+                scores suggest that campus indoor and outdoor deployment feasibility 
+                are comparable under the current data conditions.
+
+                Student survey results showed strong baseline support for robot 
+                adoption: approximately 67% in support, 26% neutral, and 7% 
+                opposed. The most commonly reported concerns were overreliance 
+                at 63% and privacy invasion at 45%, which the team addressed 
+                through recommendations for event-based recording and on-device 
+                AI processing rather than continuous surveillance.
+
+                On the demand side, outdoor campus respondents identified real-time 
+                detection and discovery at 67%, emergency communication at 65%, 
+                and nighttime escort or patrol support at 64% as the top three 
+                most valued functions. Indoor campus expert interviews emphasized 
+                facility condition monitoring, space utilization data collection, 
+                and after-hours security coverage as priority use cases.
+
+                The final strategic recommendation reframed DOGU Robotics' robots 
                 from surveillance devices into integrated facility and operations 
-                support tools, suggesting pilot deployment starting with hospital 
-                environments based on the highest RFI score.
+                support tools. Rather than positioning the robots as security 
+                replacements, the recommendation emphasized reducing repetitive 
+                non-clinical and facility workload, collecting operational data, 
+                and improving after-hours coverage — functions that support staff 
+                rather than replace them.
             </p>
+
+            <figure class="project-figure">
+                <img src="images/k-capstone/kcap_rfi_final.png" alt="Final Robot Feasibility Index results by deployment environment">
+                <figcaption>Final RFI comparison across deployment environments.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/k-capstone/kcap_ndac_breakdown.png" alt="NDAC breakdown by deployment environment">
+                <figcaption>NDAC factor breakdown used for detailed feasibility analysis.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/k-capstone/kcap_gate_score.png" alt="Gate score by deployment environment">
+                <figcaption>Gate score comparison used to evaluate operational deployment feasibility.</figcaption>
+            </figure>
         </section>
 
         <section>
