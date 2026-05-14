@@ -26,6 +26,11 @@
         .snapshot-item { border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; padding: 1rem; }
         .snapshot-label { display: block; font-family: 'Roboto Mono', monospace; color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.35rem; text-transform: uppercase; }
         .snapshot-value { color: var(--text-primary); font-weight: 600; }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 0.85rem; margin: 1.25rem 0 2rem; }
+        .metric-card { min-height: 112px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(168, 85, 247, 0.35); background: linear-gradient(180deg, rgba(168, 85, 247, 0.14), rgba(26, 29, 36, 0.92)); border-radius: 6px; padding: 1rem; }
+        .metric-card-accent { border-color: var(--accent-color); background: linear-gradient(180deg, rgba(168, 85, 247, 0.24), rgba(26, 29, 36, 0.95)); }
+        .metric-value { color: var(--text-primary); font-size: 1.7rem; line-height: 1; font-weight: 700; letter-spacing: 0; }
+        .metric-label { margin-top: 0.75rem; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; font-size: 0.76rem; line-height: 1.35; text-transform: uppercase; }
         section { margin-top: 3rem; }
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
@@ -138,25 +143,29 @@
 
         <section>
             <h2>Outcome</h2>
-            
-             <div class="metric-grid">
+
+            <div class="metric-grid">
                 <div class="metric-card">
-                    <strong>Indoor RFI: 46.79%</strong>
+                    <span class="metric-value">46.79%</span>
+                    <span class="metric-label">Indoor campus RFI</span>
                 </div>
                 <div class="metric-card">
-                    <strong>Outdoor RFI:  46.24%</strong>
+                    <span class="metric-value">46.24%</span>
+                    <span class="metric-label">Outdoor campus RFI</span>
                 </div>
                 <div class="metric-card">
-                    <strong>Survey support rate:  67%</strong>
+                    <span class="metric-value">67%</span>
+                    <span class="metric-label">Survey support rate</span>
                 </div>
                 <div class="metric-card">
-                    <strong>Top concern (overreliance):  63%</strong>
+                    <span class="metric-value">63%</span>
+                    <span class="metric-label">Top concern: overreliance</span>
                 </div>
-                <div class="metric-card">
-                    <strong>2nd place finish</strong>
+                <div class="metric-card metric-card-accent">
+                    <span class="metric-value">2nd</span>
+                    <span class="metric-label">K-Capstone finish</span>
                 </div>  
             </div>
-
 
             <p>
                 The RFI produced quantified feasibility scores across two campus 
@@ -179,13 +188,15 @@
                 facility condition monitoring, space utilization data collection, 
                 and after-hours security coverage as priority use cases.
 
-                The final strategic recommendation reframed DOGU Robotics' robots 
-                from surveillance devices into integrated facility and operations 
-                support tools. Rather than positioning the robots as security 
-                replacements, the recommendation emphasized reducing repetitive 
-                non-clinical and facility workload, collecting operational data, 
-                and improving after-hours coverage — functions that support staff 
-                rather than replace them.
+                The team's overall conclusion was that campus deployment, both 
+                indoor and outdoor, requires further improvement before 
+                large-scale adoption. The similar indoor and outdoor RFI scores 
+                of 46.79% and 46.24% suggest that neither campus environment 
+                is clearly ready for deployment without addressing the 
+                identified gaps in acceptance, concern mitigation, and 
+                operational feasibility. Hospital deployment, supported by 
+                the highest RFI score, was identified as the more promising 
+                near-term entry point for DOGU Robotics in the U.S. market.
             </p>
 
             <figure class="project-figure">
@@ -207,13 +218,44 @@
         <section>
             <h2>Limitations</h2>
             <p>
-                This was a market-entry feasibility study, not a robotics 
-                hardware engineering project or a field deployment validation. 
-                Results depended on survey data quality, stakeholder interview 
-                scope, and framework assumptions. The RFI scoring reflects the 
-                study conditions and should not be interpreted as a definitive 
-                deployment recommendation. Expert interviews were conducted at 
-                the team level and not independently verified.
+                Several limitations should be noted about this project.
+
+                The most significant was a misalignment between the team's initial 
+                approach and the client's actual goals. The team originally aimed 
+                to conduct a direct technical analysis of DOGU Robotics' product 
+                lineup, identifying competitive gaps and market positioning 
+                opportunities against existing patrol robots. However, DOGU 
+                Robotics primarily wanted a broad market research study focused 
+                on campus deployment feasibility rather than a product-level 
+                competitive analysis. As a result, the technical benchmarking 
+                work from the early competitor analysis phase was not carried 
+                forward into the final framework.
+
+                This misalignment also caused the project direction to shift 
+                multiple times. The decision to develop the Robot Feasibility 
+                Index was made after the student survey had already been 
+                collected. Because the survey was not originally designed around 
+                the RFI framework, not all questions could be cleanly mapped 
+                onto the Need, Demand, Acceptance, Concern, and Gate factors. 
+                Only the questions that were compatible with the RFI structure 
+                were extracted and scored using Python and pandas. This means 
+                the RFI scores reflect the subset of available survey data 
+                rather than a fully purpose-built measurement instrument.
+
+                The hospital deployment analysis was conducted by a teammate 
+                using R, following a similar RFI methodology. Because I was 
+                not directly involved in that calculation, I cannot fully 
+                verify the hospital scoring assumptions or weighting decisions. 
+                The hospital RFI result of 50.4% was the highest across the 
+                three environments and formed the basis for the team's 
+                conclusion that hospital deployment showed relatively stronger 
+                feasibility compared to campus environments.
+
+                These limitations reflect the realities of applied industry 
+                collaboration: client goals evolve, data collection precedes 
+                framework decisions, and scope constraints require pragmatic 
+                tradeoffs. Recognizing these constraints is part of honest 
+                engineering documentation.
             </p>
         </section>
 
