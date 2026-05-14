@@ -350,32 +350,66 @@
         <section>
             <h2>Limitations</h2>
             <p>
-                This project did not reach official IREC registration or competition entry.
-                The exact cause of the launch outcome is not fully confirmed, but based on
-                available evidence and memory, late-stage modifications may have affected
-                the CG/CP relationship or final stability condition. Some build details are
-                reconstructed from remaining photos, the OpenRocket file, and project
-                documentation rather than original records. The OpenRocket simulation
-                values should be treated as simulation estimates, not validated flight data.
-            </p>
-            <p>
-                The OpenRocket model flags a post-landing ejection charge event for the
-                M1350W-0 configuration. In a dual-deploy system, the altimeter controls
-                both parachute deployments independently of the motor ejection charge,
-                so this does not reflect an actual flight safety issue but is noted for
-                transparency.
+                This project did not reach official IREC registration 
+                or competition entry. The exact cause of the launch 
+                outcome is not fully confirmed, but as visible in the 
+                launch photos, the rocket did not maintain a stable 
+                vertical flight path. Based on available evidence, 
+                late-stage modifications before launch may have shifted 
+                the CG rearward, reducing the actual stability margin 
+                below the simulated value of 2.24 calibers. The 
+                OpenRocket model predicted CG at 172cm and CP at 201cm, 
+                a separation of 29cm, but this may not have reflected 
+                the final as-built configuration.
+
+                Environmental conditions at the Brothers, Oregon launch 
+                site were also not fully accounted for in the simulation. 
+                Launch site altitude, humidity, and wind affect air 
+                density and motor performance, and these variables were 
+                not updated in the OpenRocket model before the launch 
+                attempt.
+
+                Some build details are reconstructed from remaining 
+                photos, the OpenRocket file, and project documentation 
+                rather than original records. Simulation values should 
+                be treated as estimates, not validated flight data.
+
+                The OpenRocket model flags a post-landing ejection 
+                charge event for the M1350W-0 configuration. In a 
+                dual-deploy system, the altimeter controls both 
+                parachute deployments independently of the motor 
+                ejection charge, so this does not reflect an actual 
+                flight safety issue but is noted for transparency.
             </p>
         </section>
 
         <section>
             <h2>Reflection</h2>
             <p>
-                The most important lesson from this project was configuration control.
-                A rocket's stability margin can shift significantly with even small mass
-                changes late in the build process. Maintaining a version-controlled
-                OpenRocket file and re-checking CG/CP after every modification would have
-                been essential for catching these issues before launch day. This project
-                shaped how I approach documentation and verification in hardware projects now.
+                The most important lesson from this project was 
+                configuration control. A rocket's stability margin 
+                can shift significantly with even small mass changes 
+                late in the build process. Maintaining a 
+                version-controlled OpenRocket file and re-checking 
+                CG/CP after every modification would have been 
+                essential for catching these issues before launch day.
+
+                Beyond stability, I did not adequately account for 
+                site-specific environmental conditions at Brothers, 
+                Oregon, including launch site altitude, humidity, and 
+                wind. These variables affect air density and motor 
+                performance, and should have been factored into the 
+                simulation before the launch attempt. Both of these 
+                lessons now shape how I approach hardware projects: 
+                verify CG/CP after every late-stage modification, 
+                and always update simulation conditions to match the 
+                actual launch environment.
+
+                This experience is directly informing an upcoming 
+                summer project: an ESP32-based active flight control 
+                system with PID-controlled fin actuators, designed 
+                in Fusion 360 and validated in Simulink. A dedicated 
+                project page will be added as the work develops.
             </p>
         </section>
     </main>
