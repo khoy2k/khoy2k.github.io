@@ -41,6 +41,10 @@
         td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; }
         tr:last-child td { border-bottom: none; }
         td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+        .project-figure { margin: 1.5rem 0 2rem; border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; overflow: hidden; }
+        .project-figure img { display: block; width: 100%; height: auto; }
+        .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border-color); }
+        .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -238,14 +242,54 @@
                     </tbody>
                 </table>
             </div>
+
+            <figure class="project-figure">
+                <img src="images/irec/IREC_OpenRocket_pic.png" alt="OpenRocket simulation of the M1350W-0 flight configuration">
+                <figcaption>OpenRocket simulation showing M1350W-0 flight configuration, predicted apogee of 2,443m, max velocity of 244 m/s, and static stability margin of 2.24 calibers with CG at 172cm and CP at 201cm.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <div class="figure-grid">
+                    <img src="images/irec/IREC_Design_Tree1.png" alt="First component design tree for the IREC rocket">
+                    <img src="images/irec/IREC_Design_Tree_2.png" alt="Second component design tree for the IREC rocket">
+                </div>
+                <figcaption>Component design tree showing nose cone, recovery sections, payload bay, body tube, fin set, centering rings, and motor tube.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/irec/IREC_simulation_plot.png" alt="Simulated vertical motion profile for the IREC rocket">
+                <figcaption>Simulated vertical motion profile showing motor ignition, apogee and drogue deployment, main parachute deployment at 213m, and ground hit sequence.</figcaption>
+            </figure>
         </section>
 
         <section>
             <h2>Evidence</h2>
             <p>
-                
+                Evidence includes fabrication photos, airframe hardware, and launch-site documentation from the June 2024 build and launch attempt.
             </p>
-            
+
+            <figure class="project-figure">
+                <img src="images/irec/20240606_102142.jpg" alt="Airframe assembly during fabrication at Everett Community College">
+                <figcaption>Airframe assembly during fabrication at Everett Community College.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/irec/IMG_20240610_124242950_HDR.jpg" alt="Completed carbon fiber airframe with fin assembly and epoxy bonding">
+                <figcaption>Completed carbon fiber airframe with fin assembly and epoxy bonding.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <img src="images/irec/rn_image_picker.jpg" alt="Carbon fiber fin and epoxy work detail during airframe fabrication">
+                <figcaption>Carbon fiber fin and epoxy work detail during airframe fabrication.</figcaption>
+            </figure>
+
+            <figure class="project-figure">
+                <div class="figure-grid">
+                    <img src="images/irec/IMG_1501.jpg" alt="Launch attempt at the OROC launch site in Brothers, Oregon">
+                    <img src="images/irec/IMG_1502.jpg" alt="Second launch attempt photo at the OROC launch site in Brothers, Oregon">
+                </div>
+                <figcaption>Launch attempt at the OROC launch site in Brothers, Oregon, June 2024.</figcaption>
+            </figure>
         </section>
 
         <section>
