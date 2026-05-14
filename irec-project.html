@@ -35,6 +35,12 @@
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
         .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        th { text-align: left; padding: 0.65rem 0.85rem; font-family: 'Roboto Mono', monospace; font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+        td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -97,6 +103,98 @@
         <section>
             <h2>Vehicle Architecture</h2>
             <p>The vehicle system included the nose cone, airframe, motor configuration, recovery system, payload considerations, and stability relationship between center of gravity and center of pressure.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subsystem</th>
+                            <th>Component</th>
+                            <th>Spec</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Inner tube</td>
+                            <td>PVC</td>
+                            <td>Low cost, easy fabrication, motor mount interface</td>
+                        </tr>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Outer tube</td>
+                            <td>Carbon fiber</td>
+                            <td>High strength-to-weight ratio, handles aerodynamic and structural loads</td>
+                        </tr>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Couplers / Bulkheads</td>
+                            <td>Fiberglass</td>
+                            <td>Machinable, reliable epoxy bond strength at section joints</td>
+                        </tr>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Fins</td>
+                            <td>Carbon fiber</td>
+                            <td>Stiffness and resistance to fin flutter at high dynamic pressure</td>
+                        </tr>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Structural rod</td>
+                            <td>Metal, full length</td>
+                            <td>Maintains axial continuity across all sections during flight loads</td>
+                        </tr>
+                        <tr>
+                            <td>Nose Cone</td>
+                            <td>Nose cone</td>
+                            <td>5-inch Delrin</td>
+                            <td>Impact resistance, machinability</td>
+                        </tr>
+                        <tr>
+                            <td>Nose Cone</td>
+                            <td>Interior fill</td>
+                            <td>Foam spray</td>
+                            <td>Thermal insulation against aerodynamic heating during high-speed ascent</td>
+                        </tr>
+                        <tr>
+                            <td>Propulsion</td>
+                            <td>Motor</td>
+                            <td>Aerotech M1350W</td>
+                            <td>Upgraded from K-class after OpenRocket showed insufficient thrust for 8.8lb payload to 10,000ft</td>
+                        </tr>
+                        <tr>
+                            <td>Recovery</td>
+                            <td>Main parachute</td>
+                            <td>16ft Rocketman</td>
+                            <td>Low-altitude deployment for safe landing</td>
+                        </tr>
+                        <tr>
+                            <td>Recovery</td>
+                            <td>Drogue parachute</td>
+                            <td>8ft Rocketman</td>
+                            <td>Apogee deployment for high-altitude descent stabilization</td>
+                        </tr>
+                        <tr>
+                            <td>Recovery</td>
+                            <td>Altimeter</td>
+                            <td>Entacore AIM dual deploy</td>
+                            <td>IREC dual-deploy requirement, triggers both chute stages</td>
+                        </tr>
+                        <tr>
+                            <td>Avionics</td>
+                            <td>GPS tracker</td>
+                            <td>Featherweight (open-source)</td>
+                            <td>IREC tracking requirement, configurable without proprietary software</td>
+                        </tr>
+                        <tr>
+                            <td>Payload</td>
+                            <td>Ballast</td>
+                            <td>Sandbag, 8.8lb</td>
+                            <td>Dead weight to meet IREC minimum payload requirement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section>
