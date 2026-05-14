@@ -26,7 +26,7 @@
         .snapshot-item { border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; padding: 1rem; }
         .snapshot-label { display: block; font-family: 'Roboto Mono', monospace; color: var(--text-secondary); font-size: 0.78rem; margin-bottom: 0.35rem; text-transform: uppercase; }
         .snapshot-value { color: var(--text-primary); font-weight: 600; }
-        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 0.85rem; margin: 1.25rem 0 2rem; }
+        .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin: 1.25rem 0 2rem; }
         .metric-card { min-height: 112px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(168, 85, 247, 0.35); background: linear-gradient(180deg, rgba(168, 85, 247, 0.14), rgba(26, 29, 36, 0.92)); border-radius: 6px; padding: 1rem; }
         .metric-card-accent { border-color: var(--accent-color); background: linear-gradient(180deg, rgba(168, 85, 247, 0.24), rgba(26, 29, 36, 0.95)); }
         .metric-value, .metric-card strong { display: block; color: var(--text-primary); font-size: 1.7rem; line-height: 1; font-weight: 700; letter-spacing: 0; }
@@ -35,6 +35,40 @@
         ul { padding-left: 1.25rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
         .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+        .timeline {
+                        margin: 1.5rem 0 2rem;
+                        border-left: 2px solid var(--border-color);
+                        padding-left: 1.5rem;
+                    }
+                    .timeline-item {
+                        position: relative;
+                        margin-bottom: 1.5rem;
+                    }
+                    .timeline-item::before {
+                        content: '';
+                        position: absolute;
+                        left: -1.9rem;
+                        top: 0.4rem;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background: var(--accent-color);
+                    }
+                    .timeline-label {
+                        display: block;
+                        font-family: 'Roboto Mono', monospace;
+                        font-size: 0.78rem;
+                        color: var(--accent-color);
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                        margin-bottom: 0.3rem;
+                    }
+                    .timeline-item p {
+                        margin: 0;
+                        font-size: 1.0rem;
+                        color: var(--text-secondary);
+                        line-height: 1.6;
+                    }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -68,16 +102,40 @@
             subteam within the EvCC STEM Club, choosing a 
             learn-by-building approach over immediately 
             targeting competition requirements.
-        <p>
-            The team grew to 7 members across Aeronautics 
-            and Mechanical tracks. Design work progressed 
-            through aerodynamic sizing, airfoil selection, 
-            wing structural layout, and a SolidWorks CAD 
-            model. A small-scale model was built and 
-            flight-tested, revealing CG and structural 
-            issues. The project was discontinued before 
-            full-scale build or flight.
-        </p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-label">Oct 2024</span>
+                <p>Team formed. Aerodynamic sizing, airfoil 
+                selection, and wing geometry established.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-label">Nov 2024</span>
+                <p>A small-scale airplane was designed in 
+                SolidWorks and built with PLA. Flight testing 
+                revealed the CG was positioned aft of the 
+                center of lift, and the vertical stabilizer 
+                separated from the fuselage on the second 
+                flight.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-label">Early 2025</span>
+                <p>Design pivoted to a rib-and-spar construction. 
+                Final configuration confirmed: 8 PLA ribs on 
+                carbon fiber spars, Depron foam skin, all-moving 
+                horizontal and vertical stabilizers, full-span 
+                ailerons on ribs 2 through 4 and 7 through 9, 
+                and a bolted wing-fuselage joint. Component 
+                selection and manufacturing plan finalized.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-label">May 2025</span>
+                <p>Full-scale SolidWorks CAD started and 
+                small-scale wing ribs printed in PLA to 
+                validate the rib profile. I left the team 
+                at this point to transfer to the University 
+                of Washington.</p>
+            </div>
+        </div>
         <p>
             This page is structured as a reflection and 
             reconstruction. The first half documents what 
@@ -108,12 +166,48 @@
                 <span class="metric-value">Not flown</span>
                 <span class="metric-label">Project status</span>
             </div>
+            <div class="metric-card metric-card-accent">
+                <span class="metric-value">Reconstruction</span>
+                <span class="metric-label">Design revisited with A&A coursework</span>
+            </div>
         </div>
     </section>
 
     <section>
         <h2>Problem & Approach</h2>
-        <p>내용 다음 단계에서 작성</p>
+        <p>
+            The team started with almost no prior experience 
+            in RC aircraft design. Rather than working directly 
+            toward AIAA DBF competition requirements, the 
+            decision was to build and fly something first to 
+            develop foundational understanding before 
+            refining toward competition standards.
+        </p>
+            The first problem was figuring out where to start. 
+            Early team meetings focused on understanding basic 
+            aerodynamic relationships including lift, drag, 
+            Reynolds number, aspect ratio, and wing loading 
+            before any design decisions were made. Sizing 
+            parameters were established through whiteboard 
+            calculations: a 6-foot wingspan, 7.5 aspect ratio, 
+            9.61-inch chord, 611 in² wing area, and a cruise 
+            speed of 20 mph giving a Reynolds number of 
+            approximately 1.04 x 10⁵.
+        </p>
+        <p>
+            Airfoil selection settled on a NACA 2411-style 
+            profile based on the low Reynolds number regime 
+            and the team's manufacturing capability. The 
+            construction approach used 3D-printed PLA ribs 
+            on carbon fiber spars with Depron foam skin, 
+            chosen because it was manufacturable with the 
+            tools and budget available. A small-scale foam 
+            model was built first to validate the general 
+            configuration before committing to the full 
+            structural design.
+        </p>
+
+
     </section>
 
     <section>
