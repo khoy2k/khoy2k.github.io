@@ -69,6 +69,16 @@
                         color: var(--text-secondary);
                         line-height: 1.6;
                     }
+        .project-figure { margin: 1.5rem 0 2rem; border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; overflow: hidden; }
+        .project-figure img { display: block; width: 100%; height: auto; }
+        .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }
+        .evidence-label { font-family: 'Roboto Mono', monospace; font-size: 0.85rem; text-transform: uppercase; color: var(--accent-color) !important; letter-spacing: 0.08em; margin: 2rem 0 0.5rem; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        th { text-align: left; padding: 0.65rem 0.85rem; font-family: 'Roboto Mono', monospace; font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+        td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; line-height: 1.55; }
+        tr:last-child td { border-bottom: none; }
+        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; min-width: 160px; }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -145,16 +155,6 @@
             identify what should have been done differently.
         </p>
 
-        <figure class="project-figure">
-            <img src="images/dbf/Marco_Meeting_Notes.jpg"
-                 alt="Early aerodynamic sizing calculations
-                 from team design session">
-            <figcaption>Early aerodynamic sizing calculations
-            from team design sessions, including Reynolds
-            number estimation, wing area, and aspect ratio
-            derivation.</figcaption>
-        </figure>
-
         <div class="metric-grid">
             <div class="metric-card">
                 <span class="metric-value">7</span>
@@ -216,20 +216,182 @@
             configuration before committing to the full 
             structural design.
         </p>
+                <figure class="project-figure">
+            <img src="images/dbf/Marco_Meeting_Notes.jpg"
+                 alt="Early aerodynamic sizing calculations
+                 from team design session">
+            <figcaption>Early aerodynamic sizing calculations
+            from team design sessions, including Reynolds
+            number estimation, wing area, and aspect ratio
+            derivation.</figcaption>
+        </figure>
 
 
     </section>
 
     <section>
         <h2>My Role</h2>
-        <ul>
-            <li>내용 다음 단계에서 작성</li>
-        </ul>
+        <p>
+            My primary contribution in the early phase was 
+            organizational. The team had no prior aircraft 
+            design experience and no established workflow, 
+            so a significant portion of my time went into 
+            structuring the team, setting design review 
+            cadences, and establishing a starting point for 
+            the technical work. This took longer than 
+            expected and delayed the actual design phase.
+        </p>
+
+            <p class="evidence-label">Leadership</p>
+                <ul>
+                    <li>Founded the aircraft subteam within the EvCC 
+                    STEM Club and recruited 7 members across 
+                    Aeronautics and Mechanical tracks.</li>
+
+                    <li>Established team structure, meeting cadence, 
+                    and documentation workflow from scratch. A 
+                    significant portion of early project time went 
+                    into organizing the team rather than technical 
+                    work, which delayed the design phase.</li>
+                </ul>
+            <p class="evidence-label">Technical</p>
+                <ul>
+                    <li>Led aerodynamic sizing including wingspan, 
+                    chord, aspect ratio, wing area, Reynolds number, 
+                    and cruise speed target.</li>
+
+                    <li>Drove airfoil selection toward NACA 2411-style 
+                    profile based on the low Reynolds number regime 
+                    and team manufacturing capability.</li>
+
+                    <li>Led the structural design of the rib-and-spar 
+                    wing, defining the 8-rib layout, carbon fiber 
+                    rod spar connections, Depron foam skin approach, 
+                    wing-fuselage bolted joint, full-span aileron 
+                    configuration across ribs 2 through 4 and 7 
+                    through 9, and all-moving horizontal and vertical 
+                    stabilizer geometry.</li>
+
+                    <li>Printed small-scale PLA wing ribs to validate 
+                    the rib profile before leaving the team to 
+                    transfer to the University of Washington.</li>
+                </ul>   
     </section>
 
     <section>
         <h2>Limitations</h2>
-        <p>내용 다음 단계에서 작성</p>
+        <p>
+            This project did not reach full-scale build 
+            or flight. The following limitations reflect 
+            honest constraints from the project and 
+            inform the reconstruction in the next section.
+        </p>
+
+        <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Limitation</th>
+                    <th>Impact</th>
+                    <th>What should have been done</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No prior RC aircraft design 
+                    experience</td>
+                    <td>Early project time consumed by 
+                    foundational learning instead of 
+                    design work</td>
+                    <td>Establish basic aerodynamics 
+                    knowledge prerequisites before 
+                    forming the team</td>
+                </tr>
+                <tr>
+                    <td>Small-scale model CG positioned 
+                    aft of center of lift</td>
+                    <td>Vehicle unstable in flight. 
+                    Required design pivot and consumed 
+                    build timeline</td>
+                    <td>Formal CG/CP check and stability 
+                    margin verification before first 
+                    flight attempt</td>
+                </tr>
+                <tr>
+                    <td>Vertical stabilizer separation 
+                    on second test flight</td>
+                    <td>Structural failure during testing. 
+                    Joint design was not adequately 
+                    validated before flight</td>
+                    <td>Static load test on all joints 
+                    before flight</td>
+                </tr>
+                <tr>
+                    <td>No lift or drag analysis</td>
+                    <td>Wing sizing completed but CL, 
+                    CD, and L/D ratio were never 
+                    calculated or verified. Aerodynamic 
+                    performance was assumed rather than 
+                    predicted</td>
+                    <td>Lift and drag polar analysis 
+                    at cruise Reynolds number before 
+                    committing to final wing geometry</td>
+                </tr>
+                <tr>
+                    <td>Propulsion system not validated</td>
+                    <td>Motor, ESC, and battery selected 
+                    by budget and spec sheet only. 
+                    Thrust-to-weight ratio and power 
+                    loading were not calculated or 
+                    tested</td>
+                    <td>Thrust-to-weight ratio 
+                    calculation and bench test before 
+                    finalizing propulsion selection</td>
+                </tr>
+                <tr>
+                    <td>No CFD analysis</td>
+                    <td>Airfoil selection relied on 
+                    NACA database references only. 
+                    Actual flow behavior over the wing 
+                    at cruise conditions was not 
+                    analyzed</td>
+                    <td>Basic CFD analysis using 
+                    Autodesk CFD (Fusion 360) to 
+                    verify airfoil performance at 
+                    Re 1.04 x 10⁵</td>
+                </tr>
+                <tr>
+                    <td>No weight budget</td>
+                    <td>Component masses were not 
+                    estimated or summed. Wing loading, 
+                    CG location, and total takeoff 
+                    weight were never verified against 
+                    design targets</td>
+                    <td>Component weight estimate 
+                    table before structural layout 
+                    was finalized</td>
+                </tr>
+                <tr>
+                    <td>Left team before full-scale 
+                    build began</td>
+                    <td>Design changes after departure 
+                    not captured. Scope of this page 
+                    limited to my involvement only</td>
+                    <td>Formal handoff documentation 
+                    for incoming team members</td>
+                </tr>
+                <tr>
+                    <td>No formal PDR or CDR conducted</td>
+                    <td>Design decisions made through 
+                    informal discussion. Difficult to 
+                    track changes and verify 
+                    assumptions consistently</td>
+                    <td>Structured design review at 
+                    each major milestone</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
     </section>
 
     <section>
