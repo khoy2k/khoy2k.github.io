@@ -78,7 +78,12 @@
         th { text-align: left; padding: 0.65rem 0.85rem; font-family: 'Roboto Mono', monospace; font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
         td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; line-height: 1.55; }
         tr:last-child td { border-bottom: none; }
-        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; min-width: 160px; }
+        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; min-width: 160px; }        .toc { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.4rem; z-index: 50; }
+        .toc a { font-family: 'Roboto Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); text-decoration: none; padding: 0.18rem 0 0.18rem 0.75rem; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; display: block; }
+        .toc a:hover { color: var(--text-primary); border-left-color: var(--border-color); }
+        .toc a.active { color: var(--accent-color); border-left-color: var(--accent-color); }
+        @media (max-width: 1180px) { .toc { display: none; } }
+
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -400,5 +405,34 @@
     </section>
         
     </main>
+    <nav class="toc" id="toc" aria-label="Page sections"></nav>
+    <script>
+    (function(){
+      var toc=document.getElementById('toc');
+      var sections=document.querySelectorAll('section');
+      var links=[];
+      sections.forEach(function(s,i){
+        var h2=s.querySelector('h2');
+        if(!h2)return;
+        if(!s.id)s.id='s'+i;
+        var a=document.createElement('a');
+        a.href='#'+s.id;
+        a.textContent=h2.textContent.trim();
+        a.onclick=function(e){e.preventDefault();s.scrollIntoView({behavior:'smooth'});};
+        toc.appendChild(a);
+        links.push({a:a,s:s});
+      });
+      function update(){
+        var cur=null;
+        links.forEach(function(l){
+          if(l.s.getBoundingClientRect().top<=160)cur=l;
+        });
+        links.forEach(function(l){l.a.classList.remove('active');});
+        if(cur)cur.a.classList.add('active');
+      }
+      window.addEventListener('scroll',update,{passive:true});
+      update();
+    })();
+    </script>
 </body>
 </html>
