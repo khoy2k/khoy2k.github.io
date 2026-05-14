@@ -66,7 +66,27 @@
 
         <section>
             <h2>Problem & Approach</h2>
-            <p>The rocket required careful control of stability margin and mass distribution across payload, recovery, and motor configurations. The approach combined OpenRocket simulation, MATLAB analysis, and fabrication checks.</p>
+            <p>
+                Our project started with the IREC competition requirements: 
+                build a flight vehicle capable of reaching 10,000 feet with 
+                an 8.8-pound payload, perform a dual-deploy recovery sequence, 
+                and maintain GPS tracking throughout the entire flight.
+
+                The hard part was meeting all three requirements at once while 
+                keeping the vehicle stable. Stability shifts as the motor burns 
+                and mass drops, so we modeled the CG/CP relationship across 
+                payload, recovery, and motor configurations in OpenRocket and 
+                upgraded from a K-class to an M-class motor when the thrust 
+                numbers did not add up for the target altitude with payload 
+                on board.
+
+                On the hardware side, a Featherweight GPS tracker handled 
+                telemetry and a dual-deploy altimeter managed the two-stage 
+                recovery sequence, deploying the drogue at apogee and the 
+                main parachute at lower altitude. The airframe consisted of 
+                carbon fiber tubing with fiberglass couplers and bulkheads, 
+                epoxy bonding throughout, and a Delrin nose cone.
+            </p>
         </section>
 
         <section>
