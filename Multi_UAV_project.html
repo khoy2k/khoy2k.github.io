@@ -107,6 +107,11 @@
                     <span class="metric-label">Undergraduate Symposium</span>
                 </div>
             </div>
+
+            <figure class="project-figure">
+                <img src="images/multi-uav/drone_build_1.jpg" alt="Assembled UAV testbed, top-down view showing flight controller, ESC, motors, and propellers">
+                <figcaption>Assembled UAV testbed. DolphinRC F405 V3 flight controller and ESC stack visible at center.</figcaption>
+            </figure>
         </section>
 
         <section>
@@ -177,6 +182,17 @@
                 <li>Latency measurement pipeline design and data collection across all three control modes.</li>
                 <li>Safety and testing procedure development.</li>
             </ul>
+
+            <div class="figure-grid">
+                <figure class="project-figure">
+                    <img src="images/multi-uav/drone_build_2.jpg" alt="UAV testbed side view showing battery, receiver, and wiring layout">
+                    <figcaption>Side view showing battery mounting, receiver placement, and wiring harness.</figcaption>
+                </figure>
+                <figure class="project-figure">
+                    <img src="images/multi-uav/drone_build_3.jpg" alt="UAV testbed angled view showing full airframe and propeller configuration">
+                    <figcaption>Angled view of the completed airframe with propellers installed.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <section>
@@ -306,11 +322,21 @@
         <section>
             <h2>Next Steps</h2>
             <p>
-                Immediate priorities include resolving the UART integration issue to restore a
-                reliable manual RC override path, and improving real-time EEG signal quality
-                through better electrode placement and noise shielding. Longer term, the goal
-                is to validate the full multimodal pipeline under actual flight conditions using
-                live SSVEP classification rather than keyboard-simulated inputs.
+                Following the UW Undergraduate Symposium presentation, the project is transitioning
+                toward an undergraduate thesis. The thesis will extend the bench-level validation
+                work into a full flight-condition evaluation of the multimodal pipeline.
+            </p>
+            <p>
+                Immediate hardware priorities include resolving the UART integration issue to
+                restore a reliable manual RC override path, and improving real-time EEG signal
+                quality through better electrode placement and noise shielding.
+            </p>
+            <p>
+                For flight-condition latency measurement, the plan is to mount the UAV on a
+                6 DOF gimbal to enable controlled motion testing in a constrained environment.
+                This allows latency and command accuracy to be measured under actual flight
+                dynamics without the safety constraints of free flight, and with live SSVEP
+                classification rather than keyboard-simulated inputs.
             </p>
         </section>
     </main>
