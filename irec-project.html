@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IREC Rocket Design & Fabrication | Who Kang</title>
+    <title>IREC-Oriented High-Power Rocket Fabrication | Who Kang</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,8 +43,9 @@
         td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
         .project-figure { margin: 1.5rem 0 2rem; border: 1px solid var(--border-color); background: var(--surface-color); border-radius: 6px; overflow: hidden; }
         .project-figure img { display: block; width: 100%; height: auto; }
-        .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border-color); }
+        .figure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-color); }
         .project-figure figcaption { padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; border-top: 1px solid var(--border-color); }
+        .evidence-label { font-family: 'Roboto Mono', monospace; font-size: 0.85rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 0.08em; margin: 2rem 0 0.5rem; }
         @media (max-width: 700px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } }
     </style>
 </head>
@@ -52,102 +53,126 @@
     <main class="container">
         <a href="index.html#projects" class="back-link">Back to Projects</a>
 
-        <div class="eyebrow">April 2024 - June 2024</div>
-        <h1>IREC-oriented High Power Rocket Fabrication</h1>
-        <p class="lead">A sounding rocket project focused on stability analysis, mass distribution, OpenRocket/MATLAB modeling, and hands-on flight-hardware fabrication.</p>
+        <div class="eyebrow">April 2024 – June 2024</div>
+        <h1>IREC-Oriented High-Power Rocket Fabrication</h1>
+        <p class="lead">A sounding rocket project focused on stability analysis, mass distribution, OpenRocket simulation, and hands-on composite airframe fabrication for an IREC-oriented high-power rocket launch attempt.</p>
 
         <div class="tech-tags">
             <span class="tag">OpenRocket</span>
             <span class="tag">MATLAB</span>
             <span class="tag">Composite Fabrication</span>
-            <span class="tag">Airframe Fabrication</span>
+            <span class="tag">Airframe Assembly</span>
         </div>
 
         <section>
             <h2>Overview</h2>
             <p>
-                This project was part of the Everett Community College STEM Club 
-                Rocket Team's high-power rocketry work, oriented toward ESRA 
-                IREC competition preparation. The team designed and built 
-                a 6-ft high-power rocket intended to carry an 8.8-lb payload 
-                nearly two miles and prepared for a June 2024 launch at an OROC 
-                launch site in Brothers, Oregon. The project did not reach 
-                official IREC registration or competition entry since our flight was not sucessful, rather, this page 
-                focuses on my fabrication work, OpenRocket simulation 
-                contributions, and a reconstructed technical review of the 
-                launch-readiness limitations.
+                A 6-foot high-power rocket built to carry an 8.8-pound payload to 10,000
+                feet, with OpenRocket simulation confirming a predicted apogee of 2,443m
+                and a static stability margin of 2.24 calibers. Built by the Everett
+                Community College STEM Club Rocket Team for a June 2024 launch attempt at
+                the OROC launch site in Brothers, Oregon.
+            </p>
+
+            <div class="metric-grid">
+                <div class="metric-card metric-card-accent">
+                    <span class="metric-value">2,443 m</span>
+                    <span class="metric-label">Predicted apogee</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">2.24 cal</span>
+                    <span class="metric-label">Static stability margin</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">244 m/s</span>
+                    <span class="metric-label">Max velocity (Mach 0.723)</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">6 ft</span>
+                    <span class="metric-label">Vehicle length</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">8.8 lb</span>
+                    <span class="metric-label">Payload requirement</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">M1350W-0</span>
+                    <span class="metric-label">Motor configuration</span>
+                </div>
+            </div>
+
+            <p>
+                This project was part of the EvCC STEM Club Rocket Team's high-power
+                rocketry work, oriented toward ESRA IREC-style competition preparation.
+                The team designed and built a 6-foot high-power rocket intended to carry
+                an 8.8-pound payload nearly two miles and prepared for a June 2024 launch.
+                The project did not reach official IREC registration or competition entry.
+                This page focuses on my fabrication work, OpenRocket simulation
+                contributions, and a reconstructed technical review of the vehicle.
             </p>
         </section>
 
         <section>
             <h2>Problem & Approach</h2>
             <p>
-                Our project started with the IREC competition requirements: 
-                build a flight vehicle capable of reaching 10,000 feet with 
-                an 8.8-pound payload, perform a dual-deploy recovery sequence, 
-                and maintain GPS tracking throughout the entire flight.
+                The goal was simple on paper: build a 6-foot rocket capable of carrying an
+                8.8-pound payload to 10,000 feet, and bring it back safely.
 
-                The hard part was meeting all three requirements at once while 
-                keeping the vehicle stable. Stability shifts as the motor burns 
-                and mass drops, so we modeled the CG/CP relationship across 
-                payload, recovery, and motor configurations in OpenRocket and 
-                upgraded from a K-class to an M-class motor when the thrust 
-                numbers did not add up for the target altitude with payload 
-                on board.
+                The hard part was meeting all three requirements at once while keeping the
+                vehicle stable. IREC-style competition demands a minimum 8.8-pound payload,
+                GPS tracking, and a dual-deploy recovery system, all while maintaining
+                stable flight. Stability shifts as the motor burns and mass drops, so we
+                modeled the CG/CP relationship across configurations in OpenRocket and
+                upgraded from a K-class to an M-class motor when the thrust numbers did
+                not add up for the target altitude with payload on board.
 
-                On the hardware side, a Featherweight GPS tracker handled 
-                telemetry and a dual-deploy altimeter managed the two-stage 
-                recovery sequence, deploying the drogue at apogee and the 
-                main parachute at lower altitude. The airframe consisted of 
-                carbon fiber tubing with fiberglass couplers and bulkheads, 
-                epoxy bonding throughout, and a Delrin nose cone.
+                On the hardware side, a Featherweight GPS tracker handled telemetry and a
+                dual-deploy altimeter managed the two-stage recovery sequence, deploying
+                the drogue at apogee and the main parachute at lower altitude. The airframe
+                consisted of carbon fiber tubing with fiberglass couplers and bulkheads,
+                epoxy bonding throughout, and a PVC nose cone.
             </p>
         </section>
 
         <section>
             <h2>My Role</h2>
-            <P>
-                I led the OpenRocket simulation work, modeling CG/CP 
-                stability across payload and motor configurations. 
-                When the K-class motor showed insufficient thrust for 
-                the target altitude, I supported the decision to 
-                upgrade to an M-class motor based on simulation output.
+            <p>
+                I led the OpenRocket simulation work, modeling CG/CP stability across
+                payload, recovery, and motor configurations. When the K-class motor showed
+                insufficient thrust to reach 10,000 feet with the 8.8-pound payload,
+                I supported the decision to upgrade to an M-class motor based on the
+                simulation output.
 
                 On the fabrication side, my contributions included:
-            </P>
+            </p>
 
             <ul>
-                <li>Carbon fiber and fiberglass airframe assembly 
-                using WEST SYSTEM epoxy.</li>
+                <li>Carbon fiber and fiberglass airframe assembly using WEST SYSTEM epoxy.</li>
                 <li>Fin bonding and airframe finishing.</li>
-                <li>Full airframe body sanding and surface 
-                preparation.</li>
-                <li>Nose cone interior foam spray application for 
-                thermal insulation.</li>
-                <li>Metal rod installation through the full vehicle 
-                length for structural continuity.</li>
-                <li>launch readiness preparation at the OROC launch site in 
-                Brothers, Oregon.</li>
+                <li>Full airframe body sanding and surface preparation.</li>
+                <li>Nose cone interior foam spray application for thermal insulation.</li>
+                <li>Metal rod installation through the full vehicle length for structural continuity.</li>
+                <li>Launch readiness preparation and parachute deployment testing at the OROC launch site in Brothers, Oregon.</li>
             </ul>
         </section>
 
         <section>
             <h2>Vehicle Architecture</h2>
             <p>
-                The vehicle was designed around a dual-tube airframe: 
-                a PVC inner core handling motor mounting and internal 
-                structure, wrapped by a carbon fiber outer shell 
-                carrying aerodynamic and structural loads. This 
-                separation kept fabrication cost manageable on the 
-                inner structure while maintaining the strength and 
+                The vehicle was designed around a dual-tube airframe:
+                a PVC inner core handling motor mounting and internal
+                structure, wrapped by a carbon fiber outer shell
+                carrying aerodynamic and structural loads. This
+                separation kept fabrication cost manageable on the
+                inner structure while maintaining the strength and
                 weight requirements on the outer airframe.
 
-                Motor selection was driven by simulation. OpenRocket 
-                modeling showed the originally planned K-class motor 
-                was insufficient to reach 10,000 feet with the 
-                8.8-pound payload on board, leading to an upgrade to 
-                an M-class motor before the final build. The full 
-                component breakdown and material rationale for each 
+                Motor selection was driven by simulation. OpenRocket
+                modeling showed the originally planned K-class motor
+                was insufficient to reach 10,000 feet with the
+                8.8-pound payload on board, leading to an upgrade to
+                an M-class motor before the final build. The full
+                component breakdown and material rationale for each
                 subsystem is in the table below.
             </p>
             <div class="table-wrap">
@@ -194,8 +219,8 @@
                         <tr>
                             <td>Nose Cone</td>
                             <td>Nose cone</td>
-                            <td>5-inch Delrin</td>
-                            <td>Impact resistance, machinability</td>
+                            <td>PVC</td>
+                            <td>Lightweight, machinable</td>
                         </tr>
                         <tr>
                             <td>Nose Cone</td>
@@ -206,19 +231,19 @@
                         <tr>
                             <td>Propulsion</td>
                             <td>Motor</td>
-                            <td>Aerotech M1350W</td>
+                            <td>Aerotech M1350W-0</td>
                             <td>Upgraded from K-class after OpenRocket showed insufficient thrust for 8.8lb payload to 10,000ft</td>
                         </tr>
                         <tr>
                             <td>Recovery</td>
                             <td>Main parachute</td>
-                            <td>16ft Rocketman</td>
-                            <td>Low-altitude deployment for safe landing</td>
+                            <td>Pro X Drogue 150.80in³</td>
+                            <td>Low-altitude deployment at 213m for safe landing</td>
                         </tr>
                         <tr>
                             <td>Recovery</td>
                             <td>Drogue parachute</td>
-                            <td>8ft Rocketman</td>
+                            <td>Iris Ultra Compact 49in³</td>
                             <td>Apogee deployment for high-altitude descent stabilization</td>
                         </tr>
                         <tr>
@@ -247,13 +272,13 @@
         <section>
             <h2>Evidence</h2>
             <p>
-                The following artifacts document the simulation 
-                work, fabrication process, and launch attempt. 
-                OpenRocket simulation files, design tree, and 
-                flight plot are reconstructed from the original 
-                .ork file. Fabrication and launch photos are 
-                from the original build and launch sessions.
-          </p>
+                The following artifacts document the simulation work, fabrication process,
+                and launch attempt. OpenRocket simulation files, design tree, and flight
+                plot are reconstructed from the original .ork file. Fabrication and launch
+                photos are from the original build and launch sessions.
+            </p>
+
+            <div class="evidence-label">Simulation</div>
 
             <figure class="project-figure">
                 <img src="images/irec/IREC_OpenRocket_pic.png" alt="OpenRocket simulation of the M1350W-0 flight configuration">
@@ -273,6 +298,8 @@
                 <figcaption>Simulated vertical motion profile showing motor ignition, apogee and drogue deployment, main parachute deployment at 213m, and ground hit sequence.</figcaption>
             </figure>
 
+            <div class="evidence-label">Fabrication</div>
+
             <figure class="project-figure">
                 <img src="images/irec/20240606_102142.jpg" alt="Airframe assembly during fabrication at Everett Community College">
                 <figcaption>Airframe assembly during fabrication at Everett Community College.</figcaption>
@@ -288,30 +315,63 @@
                 <figcaption>Carbon fiber fin and epoxy work detail during airframe fabrication.</figcaption>
             </figure>
 
+            <div class="evidence-label">Launch</div>
+
             <figure class="project-figure">
                 <div class="figure-grid">
                     <img src="images/irec/IMG_1501.jpg" alt="Launch attempt at the OROC launch site in Brothers, Oregon">
-                    <img src="images/irec/IMG_1502.jpg" alt="Second launch attempt photo at the OROC launch site in Brothers, Oregon">
+                    <img src="images/irec/IMG_1502.jpg" alt="Second launch photo at the OROC launch site in Brothers, Oregon">
                 </div>
                 <figcaption>Launch attempt at the OROC launch site in Brothers, Oregon, June 2024.</figcaption>
             </figure>
-
-            
         </section>
 
         <section>
             <h2>Outcome</h2>
-            <p>The project supported a competition-ready build path by connecting simulated stability requirements with manufactured hardware.</p>
+            <p>
+                The team completed fabrication and conducted a launch attempt at the OROC
+                launch site in Brothers, Oregon in June 2024. OpenRocket simulation
+                predicted an apogee of 2,443m with a static stability margin of 2.24
+                calibers using the M1350W-0 motor configuration.
+
+                The launch attempt produced visible flight evidence captured in photos and
+                video. The project did not reach official IREC registration or competition
+                entry, and post-launch performance data was not systematically recorded.
+                Simulation results represent the best available performance reference for
+                this vehicle.
+            </p>
         </section>
 
         <section>
             <h2>Limitations</h2>
-            <p>This page should not claim full vehicle ownership or flight performance beyond documented analysis and fabrication contributions.</p>
+            <p>
+                This project did not reach official IREC registration or competition entry.
+                The exact cause of the launch outcome is not fully confirmed, but based on
+                available evidence and memory, late-stage modifications may have affected
+                the CG/CP relationship or final stability condition. Some build details are
+                reconstructed from remaining photos, the OpenRocket file, and project
+                documentation rather than original records. The OpenRocket simulation
+                values should be treated as simulation estimates, not validated flight data.
+            </p>
+            <p>
+                The OpenRocket model flags a post-landing ejection charge event for the
+                M1350W-0 configuration. In a dual-deploy system, the altimeter controls
+                both parachute deployments independently of the motor ejection charge,
+                so this does not reflect an actual flight safety issue but is noted for
+                transparency.
+            </p>
         </section>
 
         <section>
-            <h2>Next Step</h2>
-            <p>Next steps include adding OpenRocket plots, MATLAB outputs, airframe photos, and a concise table of stability assumptions.</p>
+            <h2>Reflection</h2>
+            <p>
+                The most important lesson from this project was configuration control.
+                A rocket's stability margin can shift significantly with even small mass
+                changes late in the build process. Maintaining a version-controlled
+                OpenRocket file and re-checking CG/CP after every modification would have
+                been essential for catching these issues before launch day. This project
+                shaped how I approach documentation and verification in hardware projects now.
+            </p>
         </section>
     </main>
 </body>
