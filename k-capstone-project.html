@@ -80,10 +80,14 @@
             <p>
                 The team developed a Robot Feasibility Index (RFI) informed by UTAUT
                 and SERVQUAL frameworks, scoring each deployment environment across
-                five factors: Need, Demand, Acceptance, Concern, and Gate. The analysis
-                drew from 113 student survey responses and approximately 20 stakeholder
-                interviews including UWPD, UW facilities staff, healthcare workers, and
-                administrators.
+                five factors: Need, Demand, Acceptance, Concern, and Gate. Need, Demand,
+                Acceptance, and Concern were calculated separately from student survey
+                data and expert interview data, producing distinct NDAC_student and
+                NDAC_expert inputs before weighting. Gate used expert interview results
+                only because it represented deployment feasibility from the operating
+                stakeholder side. The analysis drew from 113 student survey responses
+                and approximately 20 stakeholder interviews including UWPD, UW facilities
+                staff, healthcare workers, and administrators.
             </p>
 
             <div class="metric-grid">
@@ -120,8 +124,15 @@
             </p>
             <p>
                 The RFI framework scores each deployment environment on five factors.
-                Survey responses and interview inputs were mapped onto the factors and
-                weighted to produce a final feasibility percentage per scenario.
+                For Need, Demand, Acceptance, and Concern, student and expert data were
+                first processed as separate NDAC_student and NDAC_expert score sets.
+                Each factor then used a weighted combination of the student and expert
+                values according to its importance in the overall decision model. Gate
+                was treated differently: because it measures whether the operating
+                organization could realistically deploy and support the robot, only
+                expert interview results were used for that factor. The final RFI
+                aggregates those weighted NDAC factors and the expert-based Gate score
+                into one feasibility percentage per scenario.
                 Competitor benchmarking compared DOGU's IROI and Patrover models
                 against Knightscope K5 and SMP Robotics Argus across patrol duration,
                 weather resistance, sensor configuration, autonomous docking, and pricing.
@@ -133,33 +144,39 @@
                         <tr>
                             <th>RFI Factor</th>
                             <th>What it measures</th>
-                            <th>Data source</th>
+                            <th>Calculation method</th>
+                            <th>Input source</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Need</td>
                             <td>Functional demand for security coverage in the environment</td>
-                            <td>Expert interviews</td>
+                            <td>Weighted combination of NDAC_student and NDAC_expert</td>
+                            <td>Student survey + expert interviews</td>
                         </tr>
                         <tr>
                             <td>Demand</td>
                             <td>User-stated desired features and use cases</td>
-                            <td>Student survey</td>
+                            <td>Weighted combination of NDAC_student and NDAC_expert</td>
+                            <td>Student survey + expert interviews</td>
                         </tr>
                         <tr>
                             <td>Acceptance</td>
                             <td>Willingness to adopt and interact with the robot</td>
-                            <td>Student survey</td>
+                            <td>Weighted combination of NDAC_student and NDAC_expert</td>
+                            <td>Student survey + expert interviews</td>
                         </tr>
                         <tr>
                             <td>Concern</td>
                             <td>Privacy, safety, and overreliance concerns</td>
-                            <td>Student survey</td>
+                            <td>Weighted combination of NDAC_student and NDAC_expert</td>
+                            <td>Student survey + expert interviews</td>
                         </tr>
                         <tr>
                             <td>Gate</td>
                             <td>Operational and regulatory deployment feasibility</td>
+                            <td>Expert-only feasibility gate</td>
                             <td>Expert interviews</td>
                         </tr>
                     </tbody>
@@ -188,7 +205,7 @@
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_expert_vs_student.png" alt="Expert and student NDAC scores by environment">
-                <figcaption>Expert and student NDAC scores by deployment environment, showing differential weighting across factors.</figcaption>
+                <figcaption>NDAC_student and NDAC_expert scores by deployment environment, calculated separately before weighted RFI aggregation.</figcaption>
             </figure>
         </section>
 
@@ -273,12 +290,12 @@
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_ndac_breakdown.png" alt="NDAC breakdown by deployment environment">
-                <figcaption>NDAC factor breakdown across deployment environments.</figcaption>
+                <figcaption>Weighted NDAC factor breakdown across deployment environments after combining student and expert inputs.</figcaption>
             </figure>
 
             <figure class="project-figure">
                 <img src="images/k-capstone/kcap_gate_score.png" alt="Gate score by deployment environment">
-                <figcaption>Gate score comparison evaluating operational deployment feasibility.</figcaption>
+                <figcaption>Expert-interview-based Gate score comparison evaluating operational deployment feasibility.</figcaption>
             </figure>
         </section>
 
@@ -292,10 +309,11 @@
                 the early competitor analysis phase was not carried into the final framework.
             </p>
             <p>
-                Because the student survey was collected before the RFI framework was
-                finalized, not all survey questions mapped cleanly onto the five factors.
-                Only compatible questions were extracted and scored, so the RFI reflects
-                a subset of available data rather than a purpose-built instrument.
+                Because the student survey and expert interviews were collected before
+                the RFI framework was finalized, not every question mapped cleanly onto
+                the five factors. Only compatible student and expert inputs were
+                extracted and scored, so the RFI reflects a structured weighting of
+                available data rather than a purpose-built instrument.
             </p>
             <p>
                 The hospital analysis was conducted by a teammate using R. I was not
