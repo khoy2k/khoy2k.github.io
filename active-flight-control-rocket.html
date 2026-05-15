@@ -7,56 +7,411 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        :root { --bg-color: #0F1115; --surface-color: #1A1D24; --text-primary: #F1F5F9; --text-secondary: #94A3B8; --accent-color: #7C3AED; --border-color: #2D3748; --tag-bg: #4B2E83; --tag-text: #F3E8FF; --gold-color: #E8B429; }
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        a { color: var(--accent-color); text-decoration: none; }
-        a:hover { color: #C4B5FD; }
-        .container { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; }
-        .back-link { display: inline-block; margin-bottom: 2rem; font-weight: 600; }
-        .eyebrow { font-family: 'Roboto Mono', monospace; color: var(--gold-color); font-size: 0.9rem; margin-bottom: 0.75rem; }
-        h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 1rem; }
-        h2 { font-size: 1.45rem; margin: 0 0 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-color); }
-        h3 { color: var(--text-primary); margin: 1.5rem 0 0.75rem; }
-        p, li { color: var(--text-secondary); font-size: 1.05rem; }
-        .lead { max-width: 760px; color: var(--text-primary); font-size: 1.22rem; font-weight: 600; margin-bottom: 2rem; }
-        section { margin-top: 3rem; }
+        /* Cinematic / Purple Glow — matches homepage */
+        :root {
+            --bg-color: #070709;
+            --surface-color: #0F0F12;
+            --text-primary: #EDECEA;
+            --text-secondary: rgba(237,236,234,0.42);
+            --accent-color: #7C3AED;
+            --accent-purple: #7C3AED;
+            --border-color: rgba(255,255,255,0.06);
+            --tag-bg: rgba(124,58,237,0.12);
+            --tag-text: rgba(196,181,253,0.8);
+            --gold-color: rgba(196,181,253,0.65);
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Film grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            pointer-events: none;
+            z-index: 9997;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+            animation: filmGrain 0.35s steps(1) infinite;
+        }
+        @keyframes filmGrain {
+            0%   { transform: translate(0,0) }
+            20%  { transform: translate(-3%,-2%) }
+            40%  { transform: translate(2%,3%) }
+            60%  { transform: translate(-2%,1%) }
+            80%  { transform: translate(3%,-3%) }
+            100% { transform: translate(1%,2%) }
+        }
+
+        /* Project page nav bar */
+        .proj-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7,7,9,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .proj-nav-back {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(196,181,253,0.55);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        .proj-nav-back:hover { color: rgba(196,181,253,0.9); }
+        .proj-nav-divider {
+            width: 1px;
+            height: 1rem;
+            background: rgba(255,255,255,0.1);
+        }
+        .proj-nav-title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(237,236,234,0.28);
+        }
+
+        a { color: #A78BFA; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: rgba(196,181,253,1); }
+
+        .container { max-width: 920px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(196,181,253,0.5);
+            margin-bottom: 2.5rem;
+        }
+        .back-link:hover { color: rgba(196,181,253,0.85); }
+
+        .eyebrow {
+            font-family: 'Roboto Mono', monospace;
+            color: rgba(196,181,253,0.55);
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 0.95;
+            color: var(--text-primary);
+            margin: 0 0 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            margin: 0 0 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(237,236,234,0.7);
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+        li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; }
+
+        .lead {
+            max-width: 760px;
+            color: rgba(237,236,234,0.7);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+
+        section { margin-top: 3.5rem; }
         ul { padding-left: 1.25rem; }
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-        .tag { background-color: var(--tag-bg); color: var(--tag-text); padding: 0.25rem 0.75rem; border-radius: 999px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; font-weight: 500; }
+
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.2rem 0 2rem; }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 0.28rem 0.8rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            border: 1px solid rgba(124,58,237,0.2);
+        }
+
         .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 0.85rem; margin: 1.25rem 0 2rem; }
-        .metric-card { min-height: 112px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(124, 58, 237, 0.35); background: linear-gradient(180deg, rgba(124, 58, 237, 0.14), rgba(26, 29, 36, 0.92)); border-radius: 6px; padding: 1rem; }
-        .metric-card-accent { border-color: var(--accent-color); background: linear-gradient(180deg, rgba(124, 58, 237, 0.24), rgba(26, 29, 36, 0.95)); }
-        .metric-value, .metric-card strong { display: block; color: var(--text-primary); font-size: 1.7rem; line-height: 1; font-weight: 700; letter-spacing: 0; }
-        .metric-label, .metric-card > span:not(.metric-value) { margin-top: 0.75rem; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; font-size: 0.76rem; line-height: 1.35; text-transform: uppercase; }
+        .metric-card {
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(124,58,237,0.25);
+            background: linear-gradient(160deg, rgba(124,58,237,0.08), rgba(7,7,9,0.6));
+            padding: 1rem;
+        }
+        .metric-card-accent {
+            border-color: rgba(124,58,237,0.5);
+            background: linear-gradient(160deg, rgba(124,58,237,0.16), rgba(7,7,9,0.7));
+            box-shadow: 0 0 20px rgba(124,58,237,0.08);
+        }
+        .metric-value, .metric-card strong {
+            display: block;
+            color: var(--text-primary);
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            line-height: 1;
+            font-weight: 700;
+        }
+        .metric-label, .metric-card > span:not(.metric-value) {
+            margin-top: 0.75rem;
+            color: rgba(196,181,253,0.45);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.68rem;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
         .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-        th { text-align: left; padding: 0.65rem 0.85rem; font-family: 'Roboto Mono', monospace; font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
-        td { padding: 0.65rem 0.85rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); vertical-align: top; line-height: 1.55; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        th {
+            text-align: left;
+            padding: 0.65rem 0.85rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(196,181,253,0.45);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        td {
+            padding: 0.65rem 0.85rem;
+            color: rgba(237,236,234,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            vertical-align: top;
+            line-height: 1.6;
+        }
         tr:last-child td { border-bottom: none; }
-        td:first-child { color: var(--accent-color); font-family: 'Roboto Mono', monospace; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
-        .evidence-label { font-family: 'Roboto Mono', monospace; font-size: 0.85rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 0.08em; margin: 2rem 0 0.5rem; }
+        td:first-child {
+            color: rgba(196,181,253,0.65);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .evidence-label {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: rgba(196,181,253,0.45);
+            margin: 2rem 0 0.5rem;
+        }
+
         .figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-        .diagram { border: 1px solid var(--border-color); border-radius: 6px; background: var(--surface-color); padding: 1rem; margin: 1.5rem 0; }
+
+        .diagram {
+            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--surface-color);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
         .diagram-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
         .diagram-row:last-child { margin-bottom: 0; }
-        .diagram-node { min-height: 72px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid rgba(124, 58, 237, 0.35); border-radius: 6px; padding: 0.75rem; color: var(--text-primary); background: rgba(124, 58, 237, 0.12); font-family: 'Roboto Mono', monospace; font-size: 0.78rem; }
-        .diagram-arrow { text-align: center; color: var(--text-secondary); font-family: 'Roboto Mono', monospace; }
-        .note-box { border: 1px solid rgba(232, 180, 41, 0.35); background: rgba(232, 180, 41, 0.08); border-radius: 6px; padding: 1rem; color: var(--text-secondary); }
+        .diagram-node {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid rgba(124,58,237,0.28);
+            padding: 0.75rem;
+            color: var(--text-primary);
+            background: rgba(124,58,237,0.08);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.72rem;
+        }
+        .diagram-arrow { text-align: center; color: rgba(237,236,234,0.25); font-family: 'Roboto Mono', monospace; }
+
+        .note-box {
+            border: 1px solid rgba(124,58,237,0.25);
+            background: rgba(124,58,237,0.06);
+            padding: 1rem 1.25rem;
+            color: rgba(237,236,234,0.45);
+            font-size: 0.9rem;
+            line-height: 1.75;
+        }
+
         .toc { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.4rem; z-index: 50; }
-        .toc a { font-family: 'Roboto Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); text-decoration: none; padding: 0.18rem 0 0.18rem 0.75rem; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; display: block; }
-        .toc a:hover { color: var(--text-primary); border-left-color: var(--border-color); }
-        .toc a.active { color: var(--accent-color); border-left-color: var(--accent-color); }
+        .toc a {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(237,236,234,0.2);
+            text-decoration: none;
+            padding: 0.18rem 0 0.18rem 0.75rem;
+            border-left: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+            display: block;
+        }
+        .toc a:hover { color: rgba(237,236,234,0.6); border-left-color: rgba(255,255,255,0.12); }
+        .toc a.active { color: rgba(196,181,253,0.8); border-left-color: #A78BFA; }
+
         @media (max-width: 1180px) { .toc { display: none; } }
-        @media (max-width: 760px) { .container { padding: 3rem 1.25rem; } h1 { font-size: 2.25rem; } .diagram-row { grid-template-columns: 1fr; } .diagram-arrow { transform: rotate(90deg); } }
+        @media (max-width: 760px) {
+            .container { padding: 3rem 1.25rem 5rem; }
+            h1 { font-size: 2.2rem; }
+            .diagram-row { grid-template-columns: 1fr; }
+            .diagram-arrow { transform: rotate(90deg); }
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        figure { margin: 2rem 0; }
+        figure img { width: 100%; height: auto; }
+        figcaption { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,236,234,0.25); margin-top: 0.6rem; }
+        .project-figure { margin: 2rem 0; }
+        .project-figure img { width: 100%; height: auto; border: 1px solid rgba(255,255,255,0.05); }
+        .project-figure figcaption { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,236,234,0.22); margin-top: 0.5rem; }
+
+        /* Next project section */
+        .next-project-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .next-project-label {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(196,181,253,0.45);
+            margin-bottom: 1.5rem;
+        }
+        .next-proj-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: #0A0A0A;
+            padding: 1.5rem 2rem 1.5rem 1.5rem;
+            text-decoration: none;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+                cursor: pointer;
+        }
+        .next-proj-card:hover {
+            border-color: rgba(124,58,237,0.55);
+            box-shadow: 0 0 28px rgba(124,58,237,0.09), inset 0 0 20px rgba(124,58,237,0.03);
+            background: rgba(124,58,237,0.04);
+        }
+        .next-proj-card:hover .next-proj-num {
+            background: #7C3AED;
+            color: #fff;
+            border-color: #7C3AED;
+        }
+        .next-proj-card:hover .next-proj-illus svg {
+            color: #A78BFA;
+            filter: drop-shadow(0 0 8px rgba(124,58,237,0.45));
+        }
+        .next-proj-num {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.12em;
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(237,236,234,0.35);
+            padding: 0.25rem 0.5rem;
+            align-self: flex-start;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+        .next-proj-illus {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(237,236,234,0.25);
+        }
+        .next-proj-illus svg {
+            width: 100%;
+            height: 100%;
+            transition: color 0.25s ease, filter 0.25s ease;
+        }
+        .next-proj-info { flex: 1; min-width: 0; }
+        .next-proj-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.1;
+        }
+        .next-proj-desc {
+            font-size: 0.78rem;
+            color: rgba(237,236,234,0.35);
+            line-height: 1.65;
+            margin: 0;
+        }
+        .next-proj-arrow {
+            font-size: 1rem;
+            color: rgba(237,236,234,0.2);
+            flex-shrink: 0;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        .next-proj-card:hover .next-proj-arrow {
+            color: rgba(196,181,253,0.7);
+            transform: translateX(4px);
+        }
     </style>
 </head>
 <body>
     <main class="container">
-        <a href="index.html#projects" class="back-link">Back to Projects</a>
+        <a href="index.html#projects" class="back-link">&larr; Back to Projects</a>
 
         <div class="eyebrow">Summer 2026 – In Progress</div>
         <h1>Active Flight Control Rocket</h1>
@@ -360,5 +715,46 @@
       update();
     })();
     </script>
+
+    <section class="container">
+        <div class="next-project-section">
+            <div class="next-project-label">Next Project</div>
+            <a href="G3MS_Lab_project.html" class="next-proj-card">
+                <span class="next-proj-num">02.0</span>
+                <div class="next-proj-illus">
+                    <svg viewBox="0 0 140 140" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke-width="0.9">
+                                    <line x1="15" y1="128" x2="125" y2="128"/>
+                                    <line x1="15" y1="116" x2="125" y2="116"/>
+                                    <line x1="15" y1="104" x2="125" y2="104"/>
+                                </g>
+                                <g stroke-width="0.9" opacity="0.65">
+                                    <line x1="15" y1="92" x2="125" y2="72"/>
+                                    <line x1="15" y1="80" x2="125" y2="60"/>
+                                    <line x1="15" y1="68" x2="125" y2="48"/>
+                                </g>
+                                <g stroke-width="0.9" opacity="0.4">
+                                    <line x1="15" y1="56" x2="125" y2="36"/>
+                                    <line x1="15" y1="44" x2="125" y2="24"/>
+                                    <line x1="15" y1="32" x2="125" y2="12"/>
+                                </g>
+                                <rect x="46" y="86" width="16" height="16" stroke-width="1.2" stroke-dasharray="3 2"/>
+                                <rect x="74" y="68" width="16" height="16" stroke-width="1.2"/>
+                                <circle cx="54" cy="94" r="2" fill="currentColor"/>
+                                <circle cx="82" cy="76" r="2" fill="currentColor"/>
+                                <circle cx="15" cy="12" r="2" fill="currentColor"/>
+                                <circle cx="125" cy="12" r="2" fill="currentColor"/>
+                                <circle cx="15" cy="128" r="2" fill="currentColor"/>
+                                <circle cx="125" cy="128" r="2" fill="currentColor"/>
+                            </svg>
+                </div>
+                <div class="next-proj-info">
+                    <div class="next-proj-title">G3MS Lab</div>
+                    <p class="next-proj-desc">AFP defect identification research at UW G3MS Lab — composite layup, microscope imaging, and Filabot extrusion trials.</p>
+                </div>
+                <span class="next-proj-arrow">&#x2192;</span>
+            </a>
+        </div>
+    </section>
 </body>
 </html>
